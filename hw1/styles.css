@@ -4,24 +4,31 @@ body{
     font-family: "微軟正黑體", "Times New Roman", monospace;
     margin: 0;
 }
-
-
-.panel{
-    display: flex;
+.root{
+    overflow: hidden;  /* 移除側滾動條 */
 }
+.panel{
+    display: flex;  /* 橫向排列主畫面(main_panel)跟副畫面(side_panel) */
+}
+
+
+/* 
+    左側主畫面(main_panel) 
+*/
+
 .main_panel{
     width: 66vw;
     height: 86vh;
-    position: relative;
+    position: relative;  /* 設為 absolute position 的 ancestor */
 }
 .main_info{
     color: white;
 }
 .main_icon{
-    font-size: 40pt;
+    font-size: 3.5vw;
     background-color: rgb(144, 28, 246);
-    width: 100pt;
-    height: 100pt;
+    width: 8.5vw;
+    height: 8.5vw;
     border-radius: 50%;
     margin: 0;
     position: absolute;
@@ -33,16 +40,16 @@ body{
     justify-content: center;
 }
 .main_name{
-    font-size: 14pt;
+    font-size: 1.1vw;
     margin: 0;
     position: absolute;
-    left: 7%;
+    left: 7.5%;
     top: 100%;
-    transform: translate(-7%, -100%);
+    transform: translate(-7.5%, -100%);
 }
 .main_pin{
-    width: 25pt;
-    height: 25pt;
+    width: 2.1vw;
+    height: 2.1vw;
     margin: 0;
     position: absolute;
     left: 3%;
@@ -50,8 +57,8 @@ body{
     transform: translate(-3%, -101%);
 }
 .main_mute{
-    width: 25pt;
-    height: 25pt;
+    width: 2.1vw;
+    height: 2.1vw;
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 50%;
     margin: 0;
@@ -67,12 +74,12 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0);
-    border-radius: 35%;
-    padding: 5pt;
+    border-radius: 40%;
+    padding: 0.3vw;
 }
 .center{
-    width: 23pt;
-    height: 23pt;
+    width: 1.9vw;
+    height: 1.9vw;
     opacity: 0;
 }
 .main_panel:hover .center {
@@ -93,13 +100,17 @@ body{
 }
 
 
+/*
+    右側副畫面(side-panel)
+*/
+
 .side_panel {
-    width: 35vw;
+    width: 34vw;
     height: 86vh;
 }
 .side_info{
     color: white;
-    font-size: 22pt;
+    font-size: 1.8vw;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -138,6 +149,9 @@ body{
     height: 22vh;
 }
 .side_icon{
+    font-size: 2vw;
+    width: 5.2vw;
+    height: 5.2vw;
     border-radius: 50%;
     margin: 0;
     position: absolute;
@@ -149,46 +163,34 @@ body{
     justify-content: center;
 }
 .side_icon1 {
-    font-size: 22pt;
-    width: 60pt;
-    height: 60pt;
     background-color: rgb(8, 109, 25);
 }
 .side_icon2 {
-    font-size: 22pt;
-    width: 60pt;
-    height: 60pt;
     background-color: rgb(236, 124, 13);
 }
 .side_icon3 {
-    font-size: 22pt;
-    width: 60pt;
-    height: 60pt;
     background-color: rgb(24, 13, 146);
 }
 .side_icon4 {
-    font-size: 22pt;
-    width: 60pt;
-    height: 60pt;
     background-color: rgb(182, 21, 163);
 }
 .side_icon5 {
-    font-size: 25pt;
-    width: 70pt;
-    height: 70pt;
+    font-size: 2.6vw;
+    width: 6vw;
+    height: 6vw;
     background-color: rgb(6, 139, 234);
 }
 .side_name{
-    font-size: 12pt;
+    font-size: 1.1vw;
     margin: 0;
     position: absolute;
-    left: 7%;
+    left: 8%;
     top: 90%;
-    transform: translate(-7%, -90%);
+    transform: translate(-8%, -90%);
 }
 .side_mute {
-    width: 20pt;
-    height: 20pt;
+    width: 1.8vw;
+    height: 1.8vw;
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 50%;
     margin: 0;
@@ -199,14 +201,18 @@ body{
 }
 
 
+/*
+    下方控制列(footer-panel)
+*/
+
 .footer_panel {
-    width: 98vw;
-    height: 13vh;
+    width: 100vw;
+    height: 14vh;
     position: relative;
 }
 .room_info{
     color: white;
-    font-size: 14pt;
+    font-size: 1.2vw;
     position: absolute;
     margin: 0;
     top: 50%;
@@ -214,53 +220,174 @@ body{
     transform: translate(-3%, -50%);
 }
 .button_panel{
-    width: 27vw;
+    width: 35vw;
     margin: 0;
     position: absolute;
-    top: 10%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -35%);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 .text{
-    color: rgba(255, 255, 255, 1);
-    font-size: 6pt;
-    background-color: rgba(40, 40, 40, 0.5);
+    color: rgba(255, 255, 255, 0);
+    font-size: 0.5vw;
+    background-color: rgba(40, 40, 40, 0);
     padding: 1vh;
 }
 .buttons{
-    width: 28pt;
-    height: 28pt;
-    padding: 6pt;
-    box-shadow: inset 0 0 0 6pt black;
+    width: 2.3vw;
+    height: 2.3vw;
+    padding: 1.2vh;
+    box-shadow: inset 0 0 0 0.5vw black;
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 50%;
 }
 .button_mic{
     background-color: rgba(255, 50, 0, 0.907);
+    transform: translateX(130%);
+}
+.mic{
+    transform: translate(30%, -320%);
 }
 .button_cam{
     background-color: rgba(255, 50, 0, 0.907);
+    transform: translateX(25%);
+}
+.cam{
+    transform: translate(-15%, -320%);
+}
+.button_hand{
+    transform: translateX(-75%);
+}
+.hand{
+    transform: translate(-60%, -320%);
+}
+.button_share{
+    transform: translateX(-62%);
+}
+.share{
+    transform: translate(-50%, -320%);
+}
+.button_other{
+    transform: translateX(-155%);
+}
+.other{
+    transform: translate(-130%, -320%);
 }
 .button_end{
-    width: 35pt;
+    width: 3.3vw;
     background-color: rgba(255, 50, 0, 0.907);
+    transform: translateX(-120%);
+}
+.end{
+    transform: translate(-120%, -320%);
+}
+.button_mic:hover + .mic{
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_cam:hover + .cam {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_hand:hover + .hand {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_share:hover + .share {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_mic:hover + .mic {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_other:hover + .other {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_end:hover + .end {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
 }
 .interact_panel{
-    width: 25vw;
+    width: 35vw;
     margin: 0;
     position: absolute;
-    top: 10%;
+    top: 60%;
     left: 100%;
     transform: translate(-100%, -35%);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
+.interacts{
+    width: 3.2vw;
+    height: 3.2vw;
+}
+.info{
+    transform: translateX(355%);
+}
+.t_info{
+    transform: translate(185%, -320%);
+}
 .people{
-    transform: translateY(-15%);
+    transform: translate(300%, -10%);
+}
+.t_people{
+    transform: translate(125%, -320%);
+}
+.comment{
+    transform: translateX(225%);
+}
+.t_comment{
+    transform: translate(40%, -320%);
+}
+.activity{
+    transform: translateX(20%);
+}
+.t_activity{
+    transform: translate(25%, -320%);
+}
+.control{
+    transform: translateX(33%);
+}
+.t_control{
+    transform: translate(-5%, -320%);
+}
+.info:hover + .t_info {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.people:hover + .t_people {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.comment:hover + .t_comment {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.activity:hover + .t_activity {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.control:hover + .t_control {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
 }
