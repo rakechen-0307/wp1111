@@ -1,11 +1,11 @@
 body{
     box-sizing: border-box;
     background-color: black;
-    font-family: "微軟正黑體", "Times New Roman", monospace;
+    font-family: "微軟正黑體", "Times New Roman", sans-serif;
     margin: 0;
 }
 .root{
-    overflow: hidden;  /* 移除側滾動條 */
+    overflow: hidden;   /* 移除側滾動條 */ 
 }
 .panel{
     display: flex;  /* 橫向排列主畫面(main_panel)跟副畫面(side_panel) */
@@ -68,6 +68,7 @@ body{
     transform: translate(-98%, -5%);
 }
 .center_element{
+    display: flex;
     border-radius: 30%;
     position: absolute;
     top: 50%;
@@ -97,6 +98,30 @@ body{
 .main_panel:hover .center_element:hover{
     background-color: rgba(0, 0, 0, 0.8);
     transition-delay: 0.2s;
+}
+.no_pin_t{
+    width: 7.5vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, 40%);
+}
+.no_block_t{
+    width: 7.5vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 40%);
+}
+.no_pin:hover + .no_pin_t {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.no_block:hover + .no_block_t {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
 }
 
 
@@ -220,10 +245,10 @@ body{
     transform: translate(-3%, -50%);
 }
 .button_panel{
-    width: 35vw;
+    width: 800px;
     margin: 0;
     position: absolute;
-    top: 60%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -35%);
     display: flex;
@@ -234,26 +259,53 @@ body{
 .text{
     color: rgba(255, 255, 255, 0);
     font-size: 0.5vw;
-    background-color: rgba(40, 40, 40, 0);
+    background-color: rgba(0, 0, 0, 0);
     padding: 1vh;
 }
 .buttons{
-    width: 2.3vw;
-    height: 2.3vw;
+    width: 35px;
+    height: 35px;
     padding: 1.2vh;
     box-shadow: inset 0 0 0 0.5vw black;
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 50%;
 }
-.button_mic{
-    background-color: rgba(255, 50, 0, 0.907);
-    transform: translateX(130%);
+.button_mic_off{
+    width: 2vw;
+    height: 2vw;
+    background-color: rgba(230, 69, 29, 0.907);
+    transform: translate(175%, 115%);
+    padding: 2.5vh;
+    box-shadow: inset 0 0 0 0.5vw rgba(215, 46, 4, 0.907);
 }
-.mic{
-    transform: translate(30%, -320%);
+.mic_off{
+    transform: translate(30%, -150%);
+}
+.button_mic_on{
+    width: 2vw;
+    height: 2vw;
+    background-color: rgba(0, 0, 0, 1);
+    transform: translate(175%, -112%);
+    padding: 2.5vh;
+    box-shadow: inset 0 0 0 0.5vw rgba(0, 0, 0, 1);
+}
+.mic_on {
+    transform: translate(30%, -445%);
+}
+.button_mic_off:focus{
+    pointer-events: auto;
+    opacity: 0;
+    background-color: rgba(230, 69, 29, 0);
+    box-shadow: inset 0 0 0 0.5vw rgba(230, 69, 29, 0);
+}
+.button_mic_on:focus{
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 0 0.5vw rgba(0, 0, 0, 0);
 }
 .button_cam{
-    background-color: rgba(255, 50, 0, 0.907);
+    background-color: rgba(230, 69, 29, 0.907);
     transform: translateX(25%);
 }
 .cam{
@@ -279,13 +331,18 @@ body{
 }
 .button_end{
     width: 3.3vw;
-    background-color: rgba(255, 50, 0, 0.907);
+    background-color: rgba(230, 69, 29, 0.907);
     transform: translateX(-120%);
 }
 .end{
     transform: translate(-120%, -320%);
 }
-.button_mic:hover + .mic{
+.button_panel:hover .button_mic_off:hover + .mic_off{
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: all 0.5s ease-in;
+}
+.button_panel:hover .button_mic_on:hover+.mic_on {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(40, 40, 40, 0.5);
     transition: all 0.5s ease-in;

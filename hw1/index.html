@@ -14,9 +14,17 @@
                 <div class="main_info">
                     <p class="main_icon">柏睿</p>
                     <div class="center_element">
-                        <img class="no_pin center" src="./no_pin.png" alt="no_pin">
-                        <img class="no_block center" src="./no_block.png" alt="no_block">
-                        <img class="no_smaller center" src="./no_smaller.png" alt="no_smaller">
+                        <div>
+                            <img class="no_pin center" src="./no_pin.png" alt="no_pin">
+                            <p class="no_pin_t text">你無法取消釘選自己</p>
+                        </div>
+                        <div>
+                            <img class="no_block center" src="./no_block.png" alt="no_block">
+                            <p class="no_block_t text">你無法移除這個區塊</p>
+                        </div>
+                        <div>
+                            <img class="no_smaller center" src="./no_smaller.png" alt="no_smaller">
+                        </div>
                     </div>
                     <p class="main_name">你</p>
                     <img class="main_pin" src="./pin.png" alt="big_pin">
@@ -58,9 +66,10 @@
             <pre class="room_info">上午00:00  |  Web Programming Hw1</pre>
             <div class="button_panel">
                 <div>
-                    <input class="button_mic buttons" type="image" name="button_mic" src="./mute.png"
-                        Specfiy Image Border " alt="mic">
-                    <p class="mic text">開啟麥克風(ctrl+D)</p>
+                    <input class="button_mic_off buttons" type="button" style="background-image:url(./mute.png)">
+                    <p class="mic_off text">開啟麥克風(ctrl+D)</p>
+                    <input class="button_mic_on buttons" type="button" style="background-image:url(./mic.png)">
+                    <p class="mic_on text">關閉麥克風(ctrl+D)</p>
                 </div>
                 <div>
                     <img class="button_cam buttons" src="./no_cam.png" alt="cam">
