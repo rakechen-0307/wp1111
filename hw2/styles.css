@@ -226,6 +226,104 @@ body{
     top: 11%;
     transform: translate(-92%, -11%);
 }
+.side_remove{
+    width: 1.8vw;
+    height: 1.8vw;
+    position: absolute;
+    top: 9%;
+    left: 5%;
+}
+.side_center_element {
+    display: flex;
+    border-radius: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 40%;
+    padding: 0.3vw;
+}
+.frame1:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+.frame1:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+.frame1:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
+.frame2:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+.frame2:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+.frame2:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
+.frame3:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+.frame3:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+.frame3:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
+.frame4:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+.frame4:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+.frame4:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
+.frame5:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+.frame5:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+.frame5:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
 
 
 /*
