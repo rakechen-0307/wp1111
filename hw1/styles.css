@@ -85,6 +85,8 @@ body{
     height: 1.9vw;
     opacity: 0;
 }
+
+/* 顯現/隱藏主畫面中間控制元素 */
 .main_panel:hover .center {
     opacity: 0.5;
     transition-delay: 0.2s;
@@ -101,6 +103,7 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
     transition-delay: 0.2s;
 }
+
 .no_pin_t{
     width: 7.5vw;
     position: absolute;
@@ -115,6 +118,8 @@ body{
     left: 50%;
     transform: translate(-50%, 40%);
 }
+
+/* 顯示提示文字 */
 .no_pin:hover + .no_pin_t {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(40, 40, 40, 0.5);
@@ -229,7 +234,7 @@ body{
 
 
 /*
-    下方控制列(footer-panel)
+    下方控制項(footer-panel)
 */
 
 .footer_panel {
@@ -244,19 +249,21 @@ body{
     margin: 0;
     top: 50%;
     left: 3%;
-    transform: translate(-3%, -50%);
+    transform: translate(-3%, -90%);
 }
 .button_panel{
     width: 800px;
+    height: 110%;
+    max-width: 35%;
     margin: 0;
     position: absolute;
     top: 58%;
     left: 50%;
-    transform: translate(-50%, -35%);
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: baseline;
+    flex-wrap: nowrap;
 }
 .text{
     color: rgba(255, 255, 255, 0);
@@ -265,16 +272,18 @@ body{
     padding: 1vh;
 }
 .buttons{
-    width: 2.3vw;
-    height: 2.3vw;
+    width: 45px;
+    height: 45px;
+    max-width: 2.2vw;
+    max-height: 2.2vw;
     padding: 1.2vh;
     box-shadow: inset 0 0 0 0.5vw black;
     background-color: rgba(30, 30, 30, 0.5);
     border-radius: 50%;
 }
 .button_mic_off{
-    width: 2.5vw;
-    height: 2.5vw;
+    max-width: 2.5vw;
+    max-height: 2.5vw;
     padding: 1.2vh;
     background-color: rgba(230, 69, 29, 0.907);
     transform: translateX(185%);
@@ -286,11 +295,11 @@ body{
     transform: translate(30%, -160%);
 }
 .button_mic_on{
-    width: 2.5vw;
-    height: 2.5vw;
+    max-width: 2.5vw;
+    max-height: 2.5vw;
     padding: 1.2vh;
     background-color: rgba(0, 0, 0, 1);
-    transform: translateX(175%);
+    transform: translateX(170%);
     padding: 2.5vh;
     box-shadow: inset 0 0 0 0.5vw rgba(0, 0, 0, 1);
     position: absolute;
@@ -299,6 +308,8 @@ body{
 .mic_on {
     transform: translate(30%, -285%);
 }
+
+/* 切換麥克風 */
 .button_mic_off:focus{
     pointer-events: auto;
     opacity: 0;
@@ -311,6 +322,7 @@ body{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: inset 0 0 0 0.5vw rgba(0, 0, 0, 0);
 }
+
 .button_cam{
     background-color: rgba(230, 69, 29, 0.907);
     transform: translateX(25%);
@@ -337,13 +349,15 @@ body{
     transform: translate(-130%, -320%);
 }
 .button_end{
-    width: 3.3vw;
+    max-width: 3vw;
     background-color: rgba(230, 69, 29, 0.907);
     transform: translateX(-120%);
 }
 .end{
     transform: translate(-120%, -320%);
 }
+
+/* 顯示提示文字 */
 .button_panel:hover .button_mic_off:hover + .mic_off{
     color: rgba(255, 255, 255, 1);
     background-color: rgba(40, 40, 40, 0.5);
@@ -384,52 +398,59 @@ body{
     background-color: rgba(40, 40, 40, 0.5);
     transition: all 0.5s ease-in;
 }
+
 .interact_panel{
     width: 600px;
+    height: 110%;
+    max-width: 30%;
     margin: 0;
     position: absolute;
+    max-width: 30%;
+    max-height: 15%;
     top: 60%;
-    left: 102%;
-    transform: translate(-100%, -35%);
+    left: 98%;
+    transform: translate(-100%, -350%);
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: baseline;
+    flex-wrap: nowrap;
 }
 .interacts{
-    width: 3.2vw;
-    height: 3.2vw;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 .info{
     transform: translateX(355%);
 }
 .t_info{
-    transform: translate(185%, -320%);
+    transform: translate(185%, -220%);
 }
 .people{
     transform: translate(300%, -10%);
 }
 .t_people{
-    transform: translate(125%, -320%);
+    transform: translate(125%, -220%);
 }
 .comment{
     transform: translateX(225%);
 }
 .t_comment{
-    transform: translate(40%, -320%);
+    transform: translate(40%, -220%);
 }
 .activity{
     transform: translateX(20%);
 }
 .t_activity{
-    transform: translate(25%, -320%);
+    transform: translate(25%, -220%);
 }
 .control{
     transform: translateX(33%);
 }
 .t_control{
-    transform: translate(-5%, -320%);
+    transform: translate(-5%, -220%);
 }
+
+/* 顯示提示文字 */
 .info:hover + .t_info {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(40, 40, 40, 0.5);
