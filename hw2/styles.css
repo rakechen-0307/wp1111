@@ -7,7 +7,7 @@ body{
     margin: 0;
 }
 .root{
-    overflow: hidden;   /* 移除側滾動條 */ 
+    /*overflow: hidden;*/   /* 移除側滾動條 */ 
 }
 .panel{
     display: flex;  /* 橫向排列主畫面(main_panel)跟副畫面(side_panel) */
