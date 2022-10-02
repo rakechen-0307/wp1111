@@ -7,7 +7,7 @@ body{
     margin: 0;
 }
 .root{
-    /*overflow: hidden;*/   /* 移除側滾動條 */ 
+    overflow: hidden;   /* 移除側滾動條 */ 
 }
 .panel{
     display: flex;  /* 橫向排列主畫面(main_panel)跟副畫面(side_panel) */
@@ -321,6 +321,25 @@ body{
     transition-delay: 0.2s;
 }
 .frame5:hover .side_center_element:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-delay: 0.2s;
+}
+.frame6:hover .center {
+    opacity: 0.5;
+    transition-delay: 0.2s;
+}
+
+.frame6:hover .side_center_element {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-delay: 0.2s;
+}
+
+.side_center_element:hover .center {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.frame6:hover .side_center_element:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition-delay: 0.2s;
 }

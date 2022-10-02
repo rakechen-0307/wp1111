@@ -27,6 +27,7 @@ side_icon6.style.backgroundColor = color6;
 
 let main = document.getElementById("main");
 let main_icon = document.getElementById("main_icon");
+let main_text = document.getElementById("main_text");
 let side = document.getElementById("side");
 let upper_black = document.getElementById("side_upper_black");
 
@@ -114,6 +115,7 @@ function AdjustDisplay1(num){
         last_icon.style.fontSize = "2vw";
     }
     else if(num == 3){
+        upper_black.style.height = "20vh";
         last_block.style.width = "20vw";
         last_icon.style.width = "6vw";
         last_icon.style.height = "6vw";
@@ -127,6 +129,7 @@ function AdjustDisplay1(num){
         last_icon.style.fontSize = "2vw";
     }
     else if(num == 1){
+        upper_black.style.height = "30vh";
         last_block.style.width = "25vw";
         last_block.style.height = "30vh";
         last_icon.style.width = "6.5vw";
@@ -136,6 +139,8 @@ function AdjustDisplay1(num){
     else{
         main.style.width = "100vw";
         side.style.width = "0";
+        main_icon.style.backgroundColor = color6;
+        main_text.innerHTML = "你無法取消釘選";
     }
 }
 
@@ -278,35 +283,39 @@ function AdjustDisplay2(num){
         side.style.width = "0";
         main.style.display = "block";
         side.style.display = "none";
+        main_icon.style.backgroundColor = color6;
+        main_text.innerHTML = "你無法取消釘選";
     }
 }
 
 function NoPin(){
-    main.style.width = "0";
-    main.style.display = "none";
-    side.style.width = "100vw";
-    if(current_main == 1){
-        side1.style.display = "block";
+    if(side_num > 0){
+        main.style.width = "0";
+        main.style.display = "none";
+        side.style.width = "100vw";
+        if(current_main == 1){
+            side1.style.display = "block";
+        }
+        else if(current_main == 2){
+            side2.style.display = "block";
+        }
+        else if(current_main == 3){
+            side3.style.display = "block";
+        }
+        else if(current_main == 4){
+            side4.style.display = "block";
+        }
+        else if(current_main == 5){
+            side5.style.display = "block";
+        }
+        else if(current_main == 6){
+            side6.style.display = "block";
+        }
+        current_main = 0;
+        main_disappear = true;
+        LastBlock();
+        AdjustDisplay2(side_num);
     }
-    else if(current_main == 2){
-        side2.style.display = "block";
-    }
-    else if(current_main == 3){
-        side3.style.display = "block";
-    }
-    else if(current_main == 4){
-        side4.style.display = "block";
-    }
-    else if(current_main == 5){
-        side5.style.display = "block";
-    }
-    else if(current_main == 6){
-        side6.style.display = "block";
-    }
-    current_main = 0;
-    main_disappear = true;
-    LastBlock();
-    AdjustDisplay2(side_num);
 }
 
 function AddPin1(){
@@ -321,6 +330,7 @@ function AddPin1(){
         AdjustDisplay1(side_num);
         current_main = 1;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function AddPin2(){
@@ -335,6 +345,7 @@ function AddPin2(){
         AdjustDisplay1(side_num);
         current_main = 2;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function AddPin3(){
@@ -349,6 +360,7 @@ function AddPin3(){
         AdjustDisplay1(side_num);
         current_main = 3;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function AddPin4(){
@@ -363,6 +375,7 @@ function AddPin4(){
         AdjustDisplay1(side_num);
         current_main = 4;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function AddPin5(){
@@ -377,6 +390,7 @@ function AddPin5(){
         AdjustDisplay1(side_num);
         current_main = 5;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function AddPin6(){
@@ -386,11 +400,12 @@ function AddPin6(){
         upper_black.style.width = "34vw";
         main.style.display = "block";
         main_icon.style.backgroundColor = color6;
-        side1.style.display = "none";
+        side6.style.display = "none";
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 6;
         main_disappear = false;
+        main_text.innerHTML = "取消釘選自己";
     }
 }
 
@@ -417,6 +432,7 @@ function ChangePin1(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 1;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function ChangePin2(){
@@ -442,6 +458,7 @@ function ChangePin2(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 2;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function ChangePin3(){
@@ -467,6 +484,7 @@ function ChangePin3(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 3;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function ChangePin4(){
@@ -492,6 +510,7 @@ function ChangePin4(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 4;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function ChangePin5(){
@@ -517,6 +536,7 @@ function ChangePin5(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 5;
+        main_text.innerHTML = "取消釘選此參與者";
     }
 }
 function ChangePin6(){
@@ -542,5 +562,6 @@ function ChangePin6(){
         LastBlock();
         AdjustDisplay1(side_num);
         current_main = 6;
+        main_text.innerHTML = "取消釘選自己";
     }
 }
