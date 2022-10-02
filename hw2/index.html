@@ -8,16 +8,15 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <script src="main.js"></script>
     <div class="root">
         <div class="panel">
-            <section class="main_panel">
+            <section class="main_panel" id="main">
                 <div class="main_info">
-                    <p class="main_icon">柏睿</p>
-                    <div class="center_element">
+                    <p class="main_icon" id="main_icon">柏睿</p>
+                    <div onclick="NoPin()" class="center_element" id="main_center">
                         <div>
                             <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                            <p class="no_pin_t text">你無法取消釘選自己</p>
+                            <p class="no_pin_t text">取消釘選自己</p>
                         </div>
                         <div>
                             <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -32,18 +31,18 @@
                     <img class="main_mute" src="./button_panel/mute.png" alt="big_mute">
                 </div>
             </section>
-            <section class="side_panel">
-                <div class="side_info">
-                    <div class="upper_black_area"></div>
-                    <div class="frame1 frame">
-                        <p class="side_icon1 side_icon">柏睿</p>
+            <section class="side_panel" id="side">
+                <div class="side_info" id="side_info">
+                    <div class="upper_black_area" id="side_upper_black"></div>
+                    <div class="frame1 frame" id="Remove1">
+                        <p class="side_icon1 side_icon" id="icon1">柏睿</p>
                         <p class="side_name">陳柏睿</p>
-                        <img class="side_remove remove1" src="./remove_people/remove.png" alt="remove">
+                        <img onclick="Remove1()" class="side_remove" id="remove1" src="./remove_people/remove.png" alt="remove">
                         <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
-                        <div class="side_center_element">
+                        <div class="side_center_element" id="side1_center">
                             <div>
                                 <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                                <p class="no_pin_t text">你無法取消釘選自己</p>
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
                             </div>
                             <div>
                                 <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -54,15 +53,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="frame2 frame">
-                        <p class="side_icon2 side_icon">柏睿</p>
+                    <div class="frame2 frame" id="Remove2">
+                        <p class="side_icon2 side_icon" id="icon2">柏睿</p>
                         <p class="side_name">陳柏睿</p>
-                        <img class="side_remove remove_two" src="./remove_people/remove.png" alt="remove">
+                        <img onclick="Remove2()" class="side_remove" id="remove2" src="./remove_people/remove.png" alt="remove">
                         <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
-                        <div class="side_center_element">
+                        <div class="side_center_element" id="side2_center">
                             <div>
                                 <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                                <p class="no_pin_t text">你無法取消釘選自己</p>
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
                             </div>
                             <div>
                                 <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -73,15 +72,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="frame3 frame">
-                        <p class="side_icon3 side_icon">柏睿</p>
+                    <div class="frame3 frame" id="Remove3">
+                        <p class="side_icon3 side_icon" id="icon3">柏睿</p>
                         <p class="side_name">陳柏睿</p>
-                        <img class="side_remove remove_three" src="./remove_people/remove.png" alt="remove">
+                        <img onclick="Remove3()" class="side_remove" id="remove3" src="./remove_people/remove.png" alt="remove">
                         <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
-                        <div class="side_center_element">
+                        <div class="side_center_element" id="side3_center">
                             <div>
                                 <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                                <p class="no_pin_t text">你無法取消釘選自己</p>
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
                             </div>
                             <div>
                                 <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -92,15 +91,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="frame4 frame">
-                        <p class="side_icon4 side_icon">柏睿</p>
+                    <div class="frame4 frame" id="Remove4">
+                        <p class="side_icon4 side_icon" id="icon4">柏睿</p>
                         <p class="side_name">陳柏睿</p>
-                        <img class="side_remove remove_four" src="./remove_people/remove.png" alt="remove">
+                        <img onclick="Remove4()" class="side_remove" id="remove4" src="./remove_people/remove.png" alt="remove">
                         <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
-                        <div class="side_center_element">
+                        <div class="side_center_element" id="side4_center">
                             <div>
                                 <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                                <p class="no_pin_t text">你無法取消釘選自己</p>
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
                             </div>
                             <div>
                                 <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -111,15 +110,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="frame5 frame">
-                        <p class="side_icon5 side_icon">柏睿</p>
+                    <div class="frame5 frame" id="Remove5">
+                        <p class="side_icon5 side_icon" id="icon5">柏睿</p>
                         <p class="side_name">陳柏睿</p>
-                        <img class="side_remove remove_five" src="./remove_people/remove.png" alt="remove">
+                        <img onclick="Remove5()" class="side_remove" id="remove5" src="./remove_people/remove.png" alt="remove">
                         <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
-                        <div class="side_center_element">
+                        <div class="side_center_element" id="side5_center">
                             <div>
                                 <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
-                                <p class="no_pin_t text">你無法取消釘選自己</p>
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
+                            </div>
+                            <div>
+                                <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
+                                <p class="no_block_t text">你無法移除這個區塊</p>
+                            </div>
+                            <div>
+                                <img class="no_smaller center" src="./center_element/no_smaller.png" alt="no_smaller">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame6 frame" id="Remove6">
+                        <p class="side_icon6 side_icon" id="icon6">柏睿</p>
+                        <p class="side_name">你</p>
+                        <img class="side_mute" src="./button_panel/mute.png" alt="small_mute">
+                        <div class="side_center_element" id="side6_center">
+                            <div>
+                                <img class="no_pin center" src="./center_element/no_pin.png" alt="no_pin">
+                                <p class="no_pin_t text">將自己釘選到主畫面</p>
                             </div>
                             <div>
                                 <img class="no_block center" src="./center_element/no_block.png" alt="no_block">
@@ -186,6 +203,7 @@
                 </div>
             </div>
         </footer> 
-    </div>  
+    </div> 
+    <script src="main.js"></script>
 </body>
 </html>
