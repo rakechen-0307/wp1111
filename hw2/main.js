@@ -28,6 +28,7 @@ side_icon6.style.backgroundColor = color6;
 let main = document.getElementById("main");
 let main_icon = document.getElementById("main_icon");
 let main_text = document.getElementById("main_text");
+let main_name = document.getElementById("main_name");
 let side = document.getElementById("side");
 let upper_black = document.getElementById("side_upper_black");
 
@@ -35,7 +36,9 @@ let current_main = 6;
 let main_disappear = false;
 
 
-/* 移除參與者 */
+/*
+    移除參與者 
+*/
 
 function Remove(ID){
     ID.style.display = "none";
@@ -144,6 +147,9 @@ function AdjustDisplay1(num){
     }
 }
 
+
+/* 移除特定參與者 */
+
 function Remove1(){
     Remove(side1);
     side_num = side_num - 1;
@@ -201,7 +207,9 @@ function Remove5(){
 }
 
 
-/* 釘選控制 */
+/*
+    釘選控制
+*/
 
 function AdjustDisplay2(num){
     if(num == 5 || num == 4 || num == 2){
@@ -288,6 +296,9 @@ function AdjustDisplay2(num){
     }
 }
 
+
+/* 取消釘選 */
+
 function NoPin(){
     if(side_num > 0){
         main.style.width = "0";
@@ -318,6 +329,9 @@ function NoPin(){
     }
 }
 
+
+/* 新增釘選 */
+
 function AddPin1(){
     if(main_disappear == true){
         main.style.width = "66vw";
@@ -331,6 +345,7 @@ function AddPin1(){
         current_main = 1;
         main_disappear = false;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function AddPin2(){
@@ -346,6 +361,7 @@ function AddPin2(){
         current_main = 2;
         main_disappear = false;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function AddPin3(){
@@ -361,6 +377,7 @@ function AddPin3(){
         current_main = 3;
         main_disappear = false;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function AddPin4(){
@@ -376,6 +393,7 @@ function AddPin4(){
         current_main = 4;
         main_disappear = false;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function AddPin5(){
@@ -391,6 +409,7 @@ function AddPin5(){
         current_main = 5;
         main_disappear = false;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function AddPin6(){
@@ -406,8 +425,12 @@ function AddPin6(){
         current_main = 6;
         main_disappear = false;
         main_text.innerHTML = "取消釘選自己";
+        main_name.innerHTML = "你";
     }
 }
+
+
+/* 更換釘選者 */
 
 function ChangePin1(){
     if(main_disappear == false){
@@ -433,6 +456,7 @@ function ChangePin1(){
         AdjustDisplay1(side_num);
         current_main = 1;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function ChangePin2(){
@@ -459,6 +483,7 @@ function ChangePin2(){
         AdjustDisplay1(side_num);
         current_main = 2;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function ChangePin3(){
@@ -485,6 +510,7 @@ function ChangePin3(){
         AdjustDisplay1(side_num);
         current_main = 3;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function ChangePin4(){
@@ -511,6 +537,7 @@ function ChangePin4(){
         AdjustDisplay1(side_num);
         current_main = 4;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function ChangePin5(){
@@ -537,6 +564,7 @@ function ChangePin5(){
         AdjustDisplay1(side_num);
         current_main = 5;
         main_text.innerHTML = "取消釘選此參與者";
+        main_name.innerHTML = "陳柏睿";
     }
 }
 function ChangePin6(){
@@ -563,5 +591,6 @@ function ChangePin6(){
         AdjustDisplay1(side_num);
         current_main = 6;
         main_text.innerHTML = "取消釘選自己";
+        main_name.innerHTML = "你";
     }
 }
