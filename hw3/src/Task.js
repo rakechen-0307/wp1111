@@ -13,15 +13,15 @@ export default class Task extends Component {
   }
 
   render() {
-    const {id, name, done} = this.props
+    const {id, name, done, shown} = this.props
     return (
-      <li className='todo-app__item'>
+      <li className='todo-app__item' style={{display:shown ? '': 'none'}}>
         <div className='todo-app__checkbox'>
             <input id={id} type='checkbox' defaultChecked={done} onChange={this.handleTaskFinished(id)}></input>
             <label htmlFor={id}></label>
         </div>
-        <h1 className='todo-app__item-detail'>{name}</h1>
-        <img onClick={()=> this.handleDelete(id) } src='./x.png' className='todo-app__item-x' ></img>
+        <h1 className='todo-app__item-detail' style={{opacity:done ? 0.5:1, textDecoration:done ? 'line-through':'none'}}>{name}</h1>
+        <img onClick={()=>this.handleDelete(id)} src='./x.png' className='todo-app__item-x' ></img>
       </li>
     )
   }

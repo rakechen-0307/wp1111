@@ -1,14 +1,10 @@
 import './App.css'
-import Header from './component/Header'
-import Main from './component/Main'
-import Footer from './component/Footer' 
+import Main from '../src/Main'
 
 function App() {
   return (
-    <div id='root' className='todo-app__root'>
-      <Header></Header>
+    <div>
       <Main></Main>
-      <Footer></Footer>
     </div>
   );
 }

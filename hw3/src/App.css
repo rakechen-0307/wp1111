@@ -131,6 +131,15 @@ input[type='checkbox'] {
   transition: opacity 0.3s;
   height: 100%;
 }
+.todo-app__item-detail_done {
+  font-weight: 300;
+  overflow-wrap: break-word;
+  width: 90%;
+  transition: opacity 0.3s;
+  height: 100%;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
 
 .todo-app__footer {
   width: 100%;
