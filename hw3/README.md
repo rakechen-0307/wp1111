@@ -3,7 +3,7 @@
 解說寫在 code 裡頭的 comment  
 完成所有基礎功能與進階功能
 
-## How to run the code(這是 Windows 版的流程，用 Mac 的人可能要再自己找一下怎麼開啟 react script，感謝)
+### How to run the code(這是 Windows 版的流程，用 Mac 的人可能要再自己找一下怎麼開啟 react script，感謝)
 
 #### Step 1
 
