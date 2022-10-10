@@ -12,8 +12,8 @@
 
 #### Step 2
 
-在 visual studio code 中打開終端機並選擇 WSL(如下圖)，或者在其他地方打開你的 WSL  
-![image](https://drive.google.com/file/d/1dWk2uyd_VTdscSG0E9-0AKgnmh2MUV1R/view?usp=sharing)
+在 visual studio code 中打開終端機並選擇 WSL(如下方連接裡的圖片所示)，或者在其他地方打開你的 WSL  
+[WSL in visual studio code](https://drive.google.com/file/d/1dWk2uyd_VTdscSG0E9-0AKgnmh2MUV1R/view?usp=sharing)
 
 #### Step 3
 
