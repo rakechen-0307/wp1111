@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 
 export default class Task extends Component {
 
+  // 處理點選 checkbox 時該 task 的狀態變化
   handleTaskFinished = (id)=>{
     return (event)=>{
       this.props.UpdateTaskStatus(id, event.target.checked)
     }
   }
 
+  // 處理刪除一個 task
   handleDelete = (id)=>{
     this.props.DeleteTask(id)
   }
