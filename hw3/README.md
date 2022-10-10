@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Web Programming HW#2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+解說寫在 code 裡頭的 comment  
+完成所有基礎功能與進階功能
 
-## Available Scripts
+## How to run the code(這是 Windows 版的流程，用 Mac 的人可能要再自己找一下怎麼開啟 react script，感謝)
 
-In the project directory, you can run:
+##### Step 1
 
-### `npm start`
+如果還沒有 WSL 可以照著下方這個網址的說明安裝 WSL  
+[https://code.visualstudio.com/docs/remote/wsl](https://code.visualstudio.com/docs/remote/wsl)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##### Step 2
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+在 visual studio code 中打開終端機並選擇 WSL，或者在其他地方打開你的 WSL
 
-### `npm test`
+##### Step 3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd 到 hw3，執行 'yarn' 或 'yarn install'  
+如果無法執行('yarn install'出現 error:ERROR: [Errno 2] No such file or directory: 'install')，試試看以下指令
 
-### `npm run build`
+    sudo apt remove cmdtest
+    sudo apt remove yarn
+    sudo npm install -g yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+指令來源 : [https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install](https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install)
+如果還是不能 work 或是其他 error，可能就要麻煩再找找資料了 QQ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Step 4
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+執行 'npm start'
