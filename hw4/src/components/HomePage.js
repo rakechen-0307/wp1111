@@ -15,17 +15,39 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
 
   {/* Advanced TODO: Implementation of Difficult Adjustment
                      Some functions may be added here! */}
-
+  
+  const handleShowPanel = () =>{
+    setShowPanel(true)
+  }
 
   return (
     <div className='HomeWrapper'>
       <p className='title'>MineSweeper</p>
-      {/* Basic TODO:  Implemen start button */}
+      {/* Basic TODO:  Implement start button */}
+      <button className='btn' onClick={startGameOnClick}>Start Game</button>
 
       {/* Advanced TODO: Implementation of Difficult Adjustment
                 Useful Hint: <input type = 'range' min = '...' max = '...' defaultValue = '...'> 
                 Useful Hint: Error color: '#880000', default text color: '#0f0f4b', invisible color: 'transparent' 
                 Reminder: The defaultValue of 'mineNum' is 10, and the defaultValue of 'boardSize' is 8. */}
+      <div className='controlContainer'>
+        <button className='btn' onClick={handleShowPanel}>Difficulty Adjustment</button>
+        <div className='controlWrapper' style={{display:showPanel ? '' : 'none'}}>
+          <div className='error' style={{display:error ? '' : 'none'}}>ERROR:Mines number and board size are invalid!</div>
+          <div className='controlPanel'>
+            <div className='controlCol'>
+              <p className='controlTitle'>Mines Number</p>
+              <input type="range" min="1" max={boardSize*boardSize} step="1" defaultValue="10" />
+              <p className='controlNum'>{mineNum}</p>
+            </div>
+            <div className='controlCol'>
+              <p className='controlTitle'>Board Size(n×n)</p>
+              <input type="range" min="1" max="15" step="1" defaultValue="8" />
+              <p className='controlNum'>{boardSize}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   );

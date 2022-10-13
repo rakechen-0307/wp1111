@@ -33,7 +33,9 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         const newBoard = createBoard(boardSize, mineNum);
         // Basic TODO: Use `newBoard` created above to set the `Board`.
         // Hint: Read the definition of those Hook useState functions and make good use of them.
-
+        setNonMineCount(boardSize*boardSize-mineNum)
+        setMineLocations(newBoard.mineLocations)
+        setBoard(newBoard.board)
     }
 
     const restartGame = () => {
@@ -53,7 +55,8 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         // Basic TODO: Right Click to add a flag on board[x][y]
         // Remember to check if board[x][y] is able to add a flag (remainFlagNum, board[x][y].revealed)
         // Update board and remainFlagNum in the end
-
+        newBoard[x][y].flagged = true
+        setBoard(newBoard)
     };
 
     const revealCell = (x, y) => {
@@ -64,25 +67,30 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         // Hint: If `Hit the mine`, check ...?
         //       Else if `Reveal the number cell`, check ...?
         // Reminder: Also remember to handle the condition that after you reveal this cell then you win the game.
-
+        if (newBoard[x][y] === '💣'){
+            for (let i=0 ; i<mineLocations.length ; i++){
+                newBoard[mineLocations[i][0]][mineLocations[i][1]].revealed = true
+            }
+            setBoard(newBoard)
+        }
+        else{
+            let board_reveal = revealed(newBoard, x, y, nonMineCount)
+            setBoard(board_reveal.board)
+            setNonMineCount(board_reveal.newNonMinesCount)
+        } 
     };
 
     return (
         <div className='boardPage' >
             <div className='boardWrapper' >
-                 <h1>This is the board Page!</h1>  {/* This line of code is just for testing. Please delete it if you finish this function. */}
-
                 {/* Advanced TODO: Implement Modal based on the state of `gameOver` */}
-
                 {/* Basic TODO: Implement Board 
                 Useful Hint: The board is composed of BOARDSIZE*BOARDSIZE of Cell (2-dimention). So, nested 'map' is needed to implement the board.
                 Reminder: Remember to use the component <Cell> and <Dashboard>. See Cell.js and Dashboard.js for detailed information. */}
-                
+                <Dashboard></Dashboard>
             </div>
         </div>
     );
-
-
 
 }
 
