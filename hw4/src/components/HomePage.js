@@ -16,8 +16,17 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
   {/* Advanced TODO: Implementation of Difficult Adjustment
                      Some functions may be added here! */}
   
-  const handleShowPanel = () =>{
+  const handleShowPanel = () => {
     setShowPanel(true)
+  }
+
+  const handleError = () => {
+    if (mineNum > boardSize*boardSize){
+      setError(true)
+    }
+    else{
+      setError(false)
+    }
   }
 
   return (
@@ -37,12 +46,12 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
           <div className='controlPanel'>
             <div className='controlCol'>
               <p className='controlTitle'>Mines Number</p>
-              <input type="range" min="1" max={boardSize*boardSize} step="1" defaultValue="10" />
+              <input type="range" min="1" max="50" step="1" defaultValue="10" onChange={(event) => {handleError(); mineNumOnChange(event.target.value)}} />
               <p className='controlNum'>{mineNum}</p>
             </div>
             <div className='controlCol'>
               <p className='controlTitle'>Board Size(n×n)</p>
-              <input type="range" min="1" max="15" step="1" defaultValue="8" />
+              <input type="range" min="1" max="15" step="1" defaultValue="8" onChange={(event) => {handleError(); boardSizeOnChange(event.target.value)}} />
               <p className='controlNum'>{boardSize}</p>
             </div>
           </div>

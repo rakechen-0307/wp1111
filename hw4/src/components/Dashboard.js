@@ -17,8 +17,13 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
   // Advanced TODO: Implement the timer on the Dashboard
   {/* Useful Hint: Try to understand the difference between time and sTime. */ }
 
+  const date = new Date()
+  const start_time = date.getMilliseconds()
+
   useEffect(() => {
-    
+    setTimeout(() => {
+      setTime(date.getMilliseconds() - start_time)
+    }, 1000)
   }, []);
 
   useEffect(() => {
