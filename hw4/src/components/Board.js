@@ -88,13 +88,14 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
             setGameOver(true)
         }
         else{
-            let board_reveal = revealed(newBoard, x, y, nonMineCount, boardSize)
+            let board_reveal = revealed(newBoard, x, y, nonMineCount, boardSize, remainFlagNum)
             if (board_reveal.newNonMinesCount === 0){
                 setWin(true)
                 setGameOver(true)
             }
             setBoard(board_reveal.board)
             setNonMineCount(board_reveal.newNonMinesCount)
+            setRemainFlagNum(board_reveal.remainFlagNum)
         } 
     };
 

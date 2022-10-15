@@ -6,7 +6,7 @@
   Copyright     [ 2022 10 ]
 ****************************************************************************/
 
-export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
+export const revealed = (board, x, y, newNonMinesCount, boardSize, remainFlagNum) => {
 
     // Advanced TODO: reveal cells in a more intellectual way.
     // Useful Hint: If the cell is already revealed, do nothing.
@@ -24,6 +24,9 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
             if (board[zero_cell[i][0]-1][zero_cell[i][1]].value === 0){
               add_zero_cell.push([zero_cell[i][0]-1, zero_cell[i][1]])
             }
+            if (board[zero_cell[i][0]-1][zero_cell[i][1]].flagged === true){
+              remainFlagNum --
+            }
           }
         }
         if (zero_cell[i][0]+1 < boardSize){
@@ -32,6 +35,9 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
             newNonMinesCount --
             if (board[zero_cell[i][0]+1][zero_cell[i][1]].value === 0){
               add_zero_cell.push([zero_cell[i][0]+1, zero_cell[i][1]])
+            }
+            if (board[zero_cell[i][0]+1][zero_cell[i][1]].flagged === true){
+              remainFlagNum --
             }
           }
         }
@@ -42,6 +48,9 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
             if (board[zero_cell[i][0]][zero_cell[i][1]-1].value === 0){
               add_zero_cell.push([zero_cell[i][0], zero_cell[i][1]-1])
             }
+            if (board[zero_cell[i][0]][zero_cell[i][1]-1].flagged === true){
+              remainFlagNum --
+            }
           }
         }
         if (zero_cell[i][1]+1 < boardSize){
@@ -50,6 +59,9 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
             newNonMinesCount --
             if (board[zero_cell[i][0]][zero_cell[i][1]+1].value === 0){
               add_zero_cell.push([zero_cell[i][0], zero_cell[i][1]+1])
+            }
+            if (board[zero_cell[i][0]][zero_cell[i][1]+1].flagged === true){
+              remainFlagNum --
             }
           }
         }
@@ -71,5 +83,5 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
       }
     }
 
-    return { board, newNonMinesCount };
+    return { board, newNonMinesCount, remainFlagNum };
 };
