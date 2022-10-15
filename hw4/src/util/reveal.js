@@ -16,12 +16,11 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
 
     const checkAdjacentZero = (zero_cell) => {
       let add_zero_cell = []
-      console.log("length"+zero_cell.length)
       for(let i=0 ; i<zero_cell.length ; i++){
-        console.log(zero_cell[i])
         if (zero_cell[i][0]-1 >= 0){
           if (board[zero_cell[i][0]-1][zero_cell[i][1]].revealed !== true){
             board[zero_cell[i][0]-1][zero_cell[i][1]].revealed = true
+            newNonMinesCount --
             if (board[zero_cell[i][0]-1][zero_cell[i][1]].value === 0){
               add_zero_cell.push([zero_cell[i][0]-1, zero_cell[i][1]])
             }
@@ -30,6 +29,7 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
         if (zero_cell[i][0]+1 < boardSize){
           if (board[zero_cell[i][0]+1][zero_cell[i][1]].revealed !== true){
             board[zero_cell[i][0]+1][zero_cell[i][1]].revealed = true
+            newNonMinesCount --
             if (board[zero_cell[i][0]+1][zero_cell[i][1]].value === 0){
               add_zero_cell.push([zero_cell[i][0]+1, zero_cell[i][1]])
             }
@@ -38,6 +38,7 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
         if (zero_cell[i][1]-1 >= 0){
           if (board[zero_cell[i][0]][zero_cell[i][1]-1].revealed !== true){
             board[zero_cell[i][0]][zero_cell[i][1]-1].revealed = true
+            newNonMinesCount --
             if (board[zero_cell[i][0]][zero_cell[i][1]-1].value === 0){
               add_zero_cell.push([zero_cell[i][0], zero_cell[i][1]-1])
             }
@@ -46,6 +47,7 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
         if (zero_cell[i][1]+1 < boardSize){
           if (board[zero_cell[i][0]][zero_cell[i][1]+1].revealed !== true){
             board[zero_cell[i][0]][zero_cell[i][1]+1].revealed = true
+            newNonMinesCount --
             if (board[zero_cell[i][0]][zero_cell[i][1]+1].value === 0){
               add_zero_cell.push([zero_cell[i][0], zero_cell[i][1]+1])
             }
@@ -60,7 +62,7 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
 
     if (board[x][y].revealed !== true){
       board[x][y].revealed = true
-      newNonMinesCount = newNonMinesCount - 1
+      newNonMinesCount --
       if (board[x][y].value === 0){
         let zero_cell = [[x,y]]
         while (zero_cell.length !== 0){

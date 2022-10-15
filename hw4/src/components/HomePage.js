@@ -29,11 +29,15 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
     }
   }
 
+  const CantStartGame = () => {
+    alert("You can't start the game!!!")
+  }
+
   return (
     <div className='HomeWrapper'>
       <p className='title'>MineSweeper</p>
       {/* Basic TODO:  Implement start button */}
-      <button className='btn' onClick={startGameOnClick}>Start Game</button>
+      <button className='btn' onClick={error ? CantStartGame : startGameOnClick}>Start Game</button>
 
       {/* Advanced TODO: Implementation of Difficult Adjustment
                 Useful Hint: <input type = 'range' min = '...' max = '...' defaultValue = '...'> 

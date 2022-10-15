@@ -8,28 +8,30 @@
 
 import React, { useEffect, useState } from 'react';
 import "./css/Dashboard.css"
-let timeIntervalId;
 
 export default function Dashboard({ remainFlagNum, gameOver }) {
-  let [time, setTime] = useState(0);
-  let [sTime, setSTime] = useState(0);
 
   // Advanced TODO: Implement the timer on the Dashboard
   {/* Useful Hint: Try to understand the difference between time and sTime. */ }
 
-  const date = new Date()
-  const start_time = date.getMilliseconds()
+  let [time, setTime] = useState(0);
+  let [sTime, setSTime] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      setTime(date.getMilliseconds() - start_time)
-    }, 1000)
-  }, []);
-
-  useEffect(() => {
-
-  }, []);
-
+    let interval = null
+    if (!gameOver) {
+      interval = setInterval(() => {
+        setTime(time+1)
+        setSTime(time+1)
+      }, 1000)
+    }
+    else if (gameOver && time !== 0) {
+      interval = setInterval(() => {
+        setTime(0)
+      }, 1000)
+    }   
+    return () => clearInterval(interval)
+  }, [gameOver, time])
 
   return (
     <div className="dashBoard" >
