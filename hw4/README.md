@@ -1,7 +1,7 @@
 # HW4 MineSweeper
 
 解說寫在 code 裡頭的 comment  
-完成所有基礎功能與進階功能
+完成所有基礎功能與進階功能  
 新增功能 :  
 1.當 difficulty adjustment 的 mineNum 與 boardSize 不合規定時，點擊 Start Game 按鈕會出現 alert : "You can't start the game!!!"  
 2.當 remainFlagNum 為 0 時，新增 flag 會出現 alert : "You can't add any flag!!!"
