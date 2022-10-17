@@ -20,12 +20,12 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
   useEffect(() => {
     let interval = null
     if (!gameOver) {
-      interval = setInterval(() => {
+      interval = setInterval(() => {  // 每隔 1 秒計時加 1
         setTime(time+1)
         setSTime(time+1)
       }, 1000)
     }
-    else if (gameOver && time !== 0) {
+    else if (gameOver && time !== 0) {  // 如果 gameOver 則計時歸零
       interval = setInterval(() => {
         setTime(0)
       }, 1000)

@@ -45,4 +45,5 @@ const MineSweeper = () => {
         </div>
     );
 }
+
 export default MineSweeper;

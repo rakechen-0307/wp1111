@@ -30,7 +30,6 @@ export default function Modal({ restartGame, backToHome, win }) {
                 </div>
             </div>
             <div className='modalWrapper'></div>
-        </div>
-        
+        </div> 
     );
 }

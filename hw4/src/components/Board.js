@@ -35,7 +35,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         // Hint: Read the definition of those Hook useState functions and make good use of them.
         setNonMineCount(boardSize*boardSize-mineNum)
         setMineLocations(newBoard.mineLocations)
-        setRemainFlagNum(0)
+        setRemainFlagNum(mineNum)
         setBoard(newBoard.board)
     }
 
@@ -59,11 +59,16 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         if (newBoard[x][y].revealed === false){
             if (newBoard[x][y].flagged === true){
                 newBoard[x][y].flagged = false
-                newFlagNum = newFlagNum - 1
+                newFlagNum = newFlagNum + 1
             }
             else{
-                newBoard[x][y].flagged = true
-                newFlagNum = newFlagNum + 1
+                if (newFlagNum === 0){
+                    alert("You can't add any flag!!!")
+                }
+                else{
+                    newBoard[x][y].flagged = true
+                    newFlagNum = newFlagNum - 1
+                }
             }
         }
         setRemainFlagNum(newFlagNum)

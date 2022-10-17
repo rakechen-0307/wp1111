@@ -30,7 +30,7 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
   }
 
   const CantStartGame = () => {
-    alert("You can't start the game!!!")
+    alert("You can't start the game!!!")  // 當 Error 發生時會發出警告，無法開始遊戲
   }
 
   return (
@@ -50,7 +50,7 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
           <div className='controlPanel'>
             <div className='controlCol'>
               <p className='controlTitle'>Mines Number</p>
-              <input type="range" min="1" max="50" step="1" defaultValue="10" onChange={(event) => {handleError(); mineNumOnChange(event.target.value)}} />
+              <input type="range" min="1" max="225" step="1" defaultValue="10" onChange={(event) => {handleError(); mineNumOnChange(event.target.value)}} />
               <p className='controlNum'>{mineNum}</p>
             </div>
             <div className='controlCol'>
@@ -61,9 +61,8 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
           </div>
         </div>
       </div>
-
     </div>
   );
-
 }
+
 export default HomePage;   

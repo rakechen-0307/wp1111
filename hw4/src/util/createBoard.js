@@ -69,7 +69,6 @@ export default (boardSize, mineNum) => {
             if (c > 0 && board[r][c - 1].value === '💣') board[r][c].value++;
             // Top Left
             if (r > 0 && c > 0 && board[r - 1][c - 1].value === '💣') board[r][c].value++;
-
         }
     }
 
