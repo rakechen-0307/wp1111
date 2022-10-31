@@ -17,13 +17,13 @@ router.get('/guess', (req, res) => {
 // 如果沒有問題，回傳 status
     const ans = getNumber()
     const guessNumber = req.query.number
-    if ((guessNumber < 1) || (guessNumber > 100)){
-        res.status(406).send({msg: `${guessNumber} is Not a legal number.`})
-    }
-    else{
+    if ((guessNumber >= 1) && (guessNumber <= 100) && (Math.floor(guessNumber) == guessNumber)){
         if (ans == guessNumber){res.json({msg: 'Equal'})}
         else if (ans < guessNumber){res.json({msg: 'Smaller'})}
         else{res.json({msg: 'Larger'})}
+    }
+    else{
+        res.status(406).send({msg: `${guessNumber} is not a legal number.`})
     }
 })
 

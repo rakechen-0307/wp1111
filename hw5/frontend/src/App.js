@@ -32,31 +32,32 @@ function App() {
     const checkRestart = await restart()
     if (checkRestart === 'The game has restarted.'){
       setHasWon(false)
+      setNumber('')
       setStatus('')
     } 
   }
 
   const startMenu =
     <div>
-      <button onClick = {handleStart}>start game</button>
+      <button className='startbutton' onClick = {handleStart}>start game</button>
     </div>
 
   const gameMode =
-    <>
-      <p>Guess a number between 1 to 100</p>
+    <div className='guesspanel'>
+      <p className='text'>Guess a number between 1 to 100</p>
       {/* Get the value from input */}
-      <input onInput={handleNumber}></input>
+      <input onInput={handleNumber} value={number}></input>
       {/* Send number to backend */}
-      <button onClick={handleGuess}>guess!</button>
-      <p>{status}</p>
-    </>
+      <button onClick={handleGuess} disabled={!number}>guess!</button>
+      <p className='statustext'>{status}</p>
+    </div>
 
   const winningMode = 
-    <>
-      <p>you won! the number was {number}.</p>
+    <div className='winpanel'>
+      <p className='text'>you won! the number was {number}.</p>
       {/* Handle restart for backend and frontend */}
-      <button onClick={handleRestart}>restart</button>
-    </>
+      <button className='restartbutton' onClick={handleRestart}>restart</button>
+    </div>
 
   return (<div className="App">{hasStarted ? (hasWon ? winningMode : gameMode) : startMenu}</div>)
 }

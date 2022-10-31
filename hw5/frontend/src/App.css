@@ -1,3 +1,40 @@
+body{
+  background-color: rgba(0, 183, 255, 0.501);
+  font-family: "微軟正黑體", "Times New Roman", sans-serif;
+}
+
 .App {
   text-align: center;
+  height: 100vh;
+}
+
+.startbutton{
+  background-color: rgb(255, 225, 0);
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 40%;
+  transform: translateY(330px);
+}
+.restartbutton {
+  background-color: rgb(255, 225, 0);
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 40%;
+}
+
+.guesspanel{
+  transform: translateY(270px);
+}
+.winpanel{
+  transform: translateY(270px);
+}
+
+.text{
+  font-size: 20px;
+}
+.statustext{
+  font-size: 18px;
+  color: rgb(255, 68, 0);
 }
