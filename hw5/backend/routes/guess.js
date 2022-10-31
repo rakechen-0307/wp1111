@@ -23,7 +23,7 @@ router.get('/guess', (req, res) => {
         else{res.json({msg: 'Larger'})}
     }
     else{
-        res.status(406).send({msg: `${guessNumber} is not a legal number.`})
+        res.status(406).send({msg: `${guessNumber} is not a valid number.`})
     }
 })
 
