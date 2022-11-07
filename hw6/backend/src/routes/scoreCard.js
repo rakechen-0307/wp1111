@@ -60,7 +60,7 @@ router.get("/cards", (req , res) => {
         (async () => {
             const matchData = await ScoreCard.find({ subject:val })
             res.json({
-                messasges : (matchData.length>0) ?
+                messages : (matchData.length>0) ?
                     matchData.map(e => `Found card with subject: (${e.name}, ${e.subject}, ${e.score})`) : 
                     false,
                 message : `Subject (${val}) not found!`
