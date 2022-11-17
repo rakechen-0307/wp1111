@@ -12,7 +12,10 @@ export default {
             .connect(process.env.MONGO_URL, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
-        }).then((res) => console.log("mongo db connection created"));
-        mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+            })
+            .then((res) => console.log("mongo db connection created"));
+
+        mongoose.connection.on('error',
+            console.error.bind(console, 'connection error:'));
     }
 };
