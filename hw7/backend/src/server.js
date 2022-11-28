@@ -17,7 +17,7 @@ db.once('open', () => {
     console.log("MongoDB connected!")
     wss.on('connection', (ws) => {
         wsConnect.initData(ws)
-        ws.onmessage = wsConnect.onMessage(wss)
+        ws.onmessage = wsConnect.onMessage(wss, ws)
     })
 })
 

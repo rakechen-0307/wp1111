@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   }
 `
 
-const Title = ({name}) => {
+const Title = ({name}) => (
     <Wrapper><h1>{name ? `${name}'s` : "My"} Chat Room</h1></Wrapper>
-}
+)
 
 export default Title
