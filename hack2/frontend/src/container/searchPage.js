@@ -18,7 +18,7 @@ const instance = axios.create({
 const SearchPage = () => {
     const { state } = useLocation();
     const [restaurants, setRestaurant] = useState([])
-    const getRestaurant = async () => {
+    const getRestaurant = async (message, content) => {
         // TODO Part I-3-b: get information of restaurants from DB
     }
 
@@ -30,6 +30,7 @@ const SearchPage = () => {
     const navigate = useNavigate();
     const ToRestaurant = (id) => {
         // TODO Part III-1: navigate the user to restaurant page with the corresponding id
+        navigate('/restaurant/' + id)
     }
     const getPrice = (price) => {
         let priceText = ""
@@ -53,9 +54,9 @@ const SearchPage = () => {
                                 <div className='title'>
                                     <p className='name'>{item.name}</p>
                                     <p className='price'>{getPrice(item.price)}</p>
-                                    <p className='distance'>{item.distance}</p>
+                                    <p className='distance'>{item.distance/1000} km</p>
                                 </div>
-                                <p className='description'></p>
+                                <p className='description'>{item.tag.join(', ')}</p>
                             </div>
                         </div>
                     </>
