@@ -28,7 +28,7 @@ exports.GetSearch = async (req, res) => {
 
     // TODO Part I-3-a: find the information to all restaurants
 
-    Info.collection.find({}), function exec(err, data) {
+    Info.collection.find({priceFilter, mealFilter, typeFilter, sortBy}), function exec(err, data) {
 
         if (err){
             res.status(403).send({ message: 'error', contents: [] }) 

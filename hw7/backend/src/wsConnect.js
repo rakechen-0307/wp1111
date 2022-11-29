@@ -1,4 +1,6 @@
-import Message from './models/message'
+import { UserModel, MessageModel, ChatBoxModel } from './models/chatbox'
+
+const chatBoxes = {}
 
 const sendData = (data, ws) => {
     ws.send(JSON.stringify(data)); }
@@ -13,35 +15,88 @@ const broadcastMessage = (wss, data, status) => {
     });
 };
 
+const makeName = (name, to) => { return [name, to].sort().join('_'); };
+
+const validateChatBox = async (name, participants) => {
+    let box = await ChatBoxModel.findOne({ name });
+    if (!box){
+        box = await new ChatBoxModel({ name, users: participants }).save();
+    }
+    return box.populate(["users", {path: 'messages', populate: 'sender' }]);
+};
+
+const validateUser = async (name) => {
+    let box = await UserModel.findOne({ name })
+    if (!box){
+        box = await new UserModel({ name }).save();
+    }
+    return(box._id)
+}
+
+const freshChatBox = async (chatboxName, me, friend, body) => {
+    let mes = []
+    const existing = (await ChatBoxModel.findOne({ name: chatboxName }))
+    if(existing){
+        mes = existing.messages
+        await ChatBoxModel.deleteOne({ name: chatboxName })
+    }
+    try{
+        const newChatBox = new ChatBoxModel({
+                                name: chatboxName,
+                                users: [await UserModel.findOne({me}).populate()._id, await UserModel.findOne({friend}).populate()._id],
+                                messages: [...mes, body]
+                            })
+        return newChatBox.save()
+    } catch(e) { throw new Error("Create chatbox failed")}
+}
+
 export default {
-    initData: (ws) => {
-        Message.find().sort({ created_at: -1 }).limit(100)
-            .exec((err, res) => {
-                if (err) throw err;
-                // initialize app with existing messages
-                sendData(["init", res], ws);
-            });
-    },
     onMessage: (wss) => (
         async (byteString) => {
             const { data } = byteString
             const [task, payload] = JSON.parse(data)
+            console.log(task)
+            console.log(payload)
             switch (task) {
-                case 'input': {
-                    const { name, body } = payload
-                    // Save payload to DB
-                    const message = new Message({ name, body })
-                    try {
-                        await message.save();
-                    } catch (e) { throw new Error ("Message DB save error: " + e); }
-                    // Respond to client
-                    broadcastMessage(wss, ['output', [payload]], { type: 'success', msg: 'Message sent.'})
+                case 'CHAT': {
+                    const { name, to } = payload
+                    const chatboxName = makeName(name, to)
+                    if (!chatBoxes[chatboxName]){
+                        chatBoxes[chatboxName] = new Set()
+                    }
+                    chatBoxes[chatboxName].add(wss)
+                    if (wss.box !== "" && chatBoxes[wss.box]){
+                        chatBoxes[wss.box].delete(wss)
+                    }
+                    wss.box = chatboxName
+
+                    const Name = await validateUser(name)
+                    const To = await validateUser(to)
+
+                    const mes = (await validateChatBox(chatboxName, [Name, To])).messages
+                    let mesList = []
+                    mes.map((message) => {
+                        const m = {name: message.sender.name,
+                                to: message.sender.name === me ? to : me,
+                                body: message.body}
+                        mesList = [...mesList, m]
+                    }) 
+                    sendData(['CHAT', mesList], wss)
                     break
                 }
-                case 'clear': {
-                    Message.deleteMany({}, () => {
-                        broadcastMessage(wss, ['cleared'], { type: 'info', msg: 'Message cache cleared.'})
-                    })
+                case 'MESSAGE': {
+                    const { name, to, body } = payload
+                    const chatboxName = makeName(name, to)
+                    const message = new MessageModel({ chatbox: await ChatBoxModel.findOne({name: chatboxName}),
+                                                    sender: name,
+                                                    body: body})
+                    freshChatBox(chatboxName, name, to, message)
+                    try{
+                        await message.save()
+                    } catch (e) {
+                        throw new Error("DB save message failed") 
+                    }
+                    broadcastMessage(chatboxName, ['MESSAGE', [payload]], {type: 'success', msg: 'Message sent.'})
                     break
                 }
                 default: break

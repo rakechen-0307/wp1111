@@ -18,8 +18,10 @@ const instance = axios.create({
 const SearchPage = () => {
     const { state } = useLocation();
     const [restaurants, setRestaurant] = useState([])
-    const getRestaurant = async (message, content) => {
+    const getRestaurant = async () => {
         // TODO Part I-3-b: get information of restaurants from DB
+        const {data: {message, content}} = await instance.get('/getSearch')
+        console.log(message)
     }
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { message } from "antd";
 
 const LOCALSTORAGE_KEY = "save-me";
@@ -9,6 +9,7 @@ const ChatContext = createContext({
     me: "",
     signedIn: false,
     messages: [],
+    startChat: () => {},
     sendMessage: () => {},
     clearMessages: () => {},
 });
@@ -23,15 +24,28 @@ const ChatProvider = (props) => {
 
     const sendData = async (data) => {
         client.send(JSON.stringify(data));
+        console.log("data")
     };
 
     const clearMessages = () => {
         sendData(["clear"]);
     };
 
+    const startChat = (name, to) => {
+        if (!name || !to) {
+            throw new Error('Name or to required')
+        }
+        console.log(name)
+        console.log(to)
+        sendData([ 'CHAT', {name, to}])
+    }
+
     const sendMessage = (payload) => {
-        sendData(["input", payload])
-        console.log(payload);
+        const {name, to, body} = payload
+        if (!name || !to || !body){
+            throw new Error('Name or to or body required')
+        }
+        sendData(['MESSAGE', {name, to, body}])
     }
 
     const displayStatus = (s) => {
@@ -51,17 +65,16 @@ const ChatProvider = (props) => {
     }
 
     client.onmessage = (byteString) => {
-        const { data } = byteString;
-        const [task, payload] = JSON.parse(data);
-        switch (task) {
-            case "init": {
-                setMessages(payload); break }
-            case "output": {
-                setMessages(() => [...messages, ...payload]); break }
-            case "status": {
-                setStatus(payload); break }
-            case "cleared": {
-                setMessages([]); break }
+        const {type, payload} = JSON.parse(byteString.data)
+        switch(type){
+            case 'CHAT':{
+                setMessages(payload)
+                break
+            }
+            case 'MESSAGE': {
+                setMessages(() => [...messages, payload])
+                break
+            }
             default: break
         }
     }
@@ -76,7 +89,7 @@ const ChatProvider = (props) => {
         <ChatContext.Provider
             value={{
                 status, me, signedIn, messages, setMe, setSignedIn,
-                sendMessage, clearMessages, displayStatus
+                startChat, sendMessage, clearMessages, displayStatus
             }}
             {...props}
         />

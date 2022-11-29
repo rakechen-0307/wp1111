@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { useChat } from "./hooks/useChat"
 import Title from "../components/Title"
 import Message from "../components/Message"
+import ChatModal from "../components/ChatModal"
 
 const ChatBoxesWrapper = styled(Tabs)`
   width: 100%;
@@ -25,7 +26,7 @@ const FootRef = styled.div`
 `
 
 const ChatRoom = () => {
-    const { me, messages, sendMessage, displayStatus } = useChat()
+    const { me, messages, sendMessage, displayStatus, startChat } = useChat()
     const [msg, setMsg] = useState('')
     const [msgSent, setMsgSent] = useState(false)
     const [chatBoxes, setChatBoxes] = useState([])
@@ -63,6 +64,19 @@ const ChatRoom = () => {
         return friend;
     }
 
+    const removeChatBox = (targetKey, activeKey) => {
+        const index = chatBoxes.findIndex(({key}) => key === activeKey);
+        const newChatBoxes = chatBoxes.filter(({key}) =>key !== targetKey);
+        setChatBoxes(newChatBoxes);
+        return activeKey
+            ? activeKey === targetKey
+                ? index === 0
+                    ? '' 
+                    : chatBoxes[index - 1].key
+                : activeKey
+            : '';
+        };
+
     const scrollToBottom = () => {
         msgFooter.current?.scrollIntoView({behavior:'smooth', block:'start'})
     }
@@ -72,39 +86,74 @@ const ChatRoom = () => {
         setMsgSent(false)
     }, [msgSent])
 
+    useEffect(()=>{
+        if(chatBoxes.length !== 0){
+            const index = chatBoxes.findIndex (({key}) => key === activeKey);
+            const chat = extractChat();
+            const newChatboxes = [...chatBoxes.slice(0,index), {label: activeKey, children: chat, key: activeKey}, ...chatBoxes.slice(index+1,)]
+            setChatBoxes(newChatboxes);
+            setSentMsg(true);
+        }
+    },[messages])
+
     return(
         <>
             <Title name={me}></Title>
-            <ChatBoxWrapper>
-                {displayMessages()}
-                <FootRef ref={msgFooter}></FootRef>
-            </ChatBoxWrapper>
-            <Input
-                placeholder="Username"
-                value={username}
-                onChange={(e) => {setUsername(e.target.value)}}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter'){
-                        msgRef.current.focus()
-                    }
-                }}
-            ></Input>
+            <>
+                <ChatBoxesWrapper
+                    tabBarStyle={{height: '36px'}}
+                    type='editable-card'
+                    activeKey={activeKey}
+                    onChange={(key) => {
+                        setActiveKey(key)
+                        startChat(me, key)
+                    }}
+                    onEdit={(targetKey, action) => {
+                        if (action === "add"){
+                            setModalOpen(true)
+                        }
+                        else if (action === "remove"){
+                            setActiveKey(removeChatBox(targetKey, activeKey))
+                        }
+                    }}
+                    items={chatBoxes}
+                ></ChatBoxesWrapper>
+                <ChatModal
+                    open={modalOpen}
+                    onCreate={({name}) => {
+                        setActiveKey(createChatBox(name))
+                        startChat(me, name)
+                        setModalOpen(false)
+                    }}
+                    onCancel={() => {
+                        setModalOpen(false)
+                    }}
+                ></ChatModal>
+            </>
             <Input.Search
                 value={msg}
-                ref={msgRef}
                 onChange={(e) => setMsg(e.target.value)}
                 enterButton="Send"
                 placeholder="Type a message here..."
                 onSearch={(msg) => {
-                    if (!msg || !username) {
+                    if (!msg){
                         displayStatus({
                             type: 'error',
-                            msg: 'Please enter a username and a message body.'
+                            msg: 'Please enter message'
                         })
                         return
                     }
-                    sendMessage({ name: username, body: msg })
+                    else if (activeKey === ""){
+                        displayStatus({
+                            type: 'error',
+                            msg: 'Please add a chatbox first'
+                        })
+                        setMsg('')
+                        return
+                    }
+                    sendMessage({name: me, to: activeKey, body: msg})
                     setMsg('')
+                    setMsgSent(true)
                 }}
             ></Input.Search>
         </>
