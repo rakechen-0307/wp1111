@@ -20,8 +20,16 @@ const SearchPage = () => {
     const [restaurants, setRestaurant] = useState([])
     const getRestaurant = async () => {
         // TODO Part I-3-b: get information of restaurants from DB
-        const {data: {message, content}} = await instance.get('/getSearch')
-        console.log(message)
+        try{
+            const restaurant = await instance.get('/getSearch',
+            {params:{ 
+                priceFilter: state.priceFilter ,
+                mealFilter: state.mealFilter,
+                typeFilter: state.typeFilter,
+                sortBy: state.sortBy 
+            }});           
+            setRestaurant(restaurant.data.contents);
+        }catch(e){}
     }
 
     useEffect(() => {
@@ -32,7 +40,7 @@ const SearchPage = () => {
     const navigate = useNavigate();
     const ToRestaurant = (id) => {
         // TODO Part III-1: navigate the user to restaurant page with the corresponding id
-        navigate('/restaurant/' + id)
+        navigate('/restaurant/' + id) 
     }
     const getPrice = (price) => {
         let priceText = ""
@@ -48,7 +56,7 @@ const SearchPage = () => {
                 restaurants.map((item) => (
                     // TODO Part I-2: search page front-end
                     <>
-                        <div className='resBlock' id={item.id} key={item.id}>
+                        <div className='resBlock' id={item.id} key={item.id} onClick={() => {ToRestaurant(item.id)}}>
                             <div className='resImgContainer'>
                                 <img className='resImg' src={item.img}></img>
                             </div>

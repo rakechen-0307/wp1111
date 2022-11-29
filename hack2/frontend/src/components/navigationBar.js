@@ -41,7 +41,7 @@ const NavBar = () => {
         // FIXME - Modify below
         navigate('/search', {
             state: {
-                priceFilter: priceFilter,
+                priceFilter: priceFilter.map((item) => (item === '$') ? 1 : ((item === '$$') ? 2 : 3)),
                 mealFilter: mealFilter,
                 typeFilter: typeFilter,
                 sortBy: sortMethod
