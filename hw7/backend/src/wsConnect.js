@@ -55,8 +55,6 @@ export default {
         async (byteString) => {
             const { data } = byteString
             const [task, payload] = JSON.parse(data)
-            console.log(task)
-            console.log(payload)
             switch (task) {
                 case 'CHAT': {
                     const { name, to } = payload
@@ -81,7 +79,7 @@ export default {
                                 body: message.body}
                         mesList = [...mesList, m]
                     }) 
-                    sendData(['CHAT', mesList], wss)
+                    sendData(['initial', mesList], wss)
                     break
                 }
                 case 'MESSAGE': {
@@ -96,7 +94,7 @@ export default {
                     } catch (e) {
                         throw new Error("DB save message failed") 
                     }
-                    broadcastMessage(chatboxName, ['MESSAGE', [payload]], {type: 'success', msg: 'Message sent.'})
+                    broadcastMessage(chatboxName, ['output', [payload]], {type: 'success', msg: 'Message sent.'})
                     break
                 }
                 default: break

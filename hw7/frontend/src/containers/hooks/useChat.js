@@ -5,13 +5,17 @@ const LOCALSTORAGE_KEY = "save-me";
 const savedMe = localStorage.getItem(LOCALSTORAGE_KEY);
 
 const ChatContext = createContext({
-    status: {},
-    me: "",
-    signedIn: false,
+    status:{},
+    displayStatus: ()=>{},
     messages: [],
-    startChat: () => {},
-    sendMessage: () => {},
-    clearMessages: () => {},
+    sendMessage: ()=>{},
+    setSignedIn: ()=>{},
+    setMe: ()=>{},
+    me:'',
+    signedIn:false,
+    startChat: ()=>{},
+    activeKey:'',
+    setActiveKey:()=>{},
 });
 
 const client = new WebSocket ('ws://localhost:4000')
@@ -24,7 +28,6 @@ const ChatProvider = (props) => {
 
     const sendData = async (data) => {
         client.send(JSON.stringify(data));
-        console.log("data")
     };
 
     const clearMessages = () => {
@@ -35,9 +38,7 @@ const ChatProvider = (props) => {
         if (!name || !to) {
             throw new Error('Name or to required')
         }
-        console.log(name)
-        console.log(to)
-        sendData([ 'CHAT', {name, to}])
+        sendData(['CHAT', {name, to}])
     }
 
     const sendMessage = (payload) => {
@@ -65,17 +66,22 @@ const ChatProvider = (props) => {
     }
 
     client.onmessage = (byteString) => {
-        const {type, payload} = JSON.parse(byteString.data)
-        switch(type){
-            case 'CHAT':{
-                setMessages(payload)
-                break
-            }
-            case 'MESSAGE': {
-                setMessages(() => [...messages, payload])
-                break
-            }
-            default: break
+        const {task, payload} = JSON.parse(byteString.data)
+        switch(task){
+            case 'cleared':{
+                setMessages([]);
+                break;}
+            case 'initial':{
+                setMessages(payload);
+                break;}
+            case 'output':{
+                console.log(messages);
+                setMessages(()=>[...messages,...payload]);
+                break;}
+            case 'status':{
+                setStatus(payload);
+                break;}
+            default: break;
         }
     }
 

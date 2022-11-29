@@ -92,7 +92,7 @@ const ChatRoom = () => {
             const chat = extractChat();
             const newChatboxes = [...chatBoxes.slice(0,index), {label: activeKey, children: chat, key: activeKey}, ...chatBoxes.slice(index+1,)]
             setChatBoxes(newChatboxes);
-            setSentMsg(true);
+            setMsgSent(true);
         }
     },[messages])
 
@@ -121,8 +121,8 @@ const ChatRoom = () => {
                 <ChatModal
                     open={modalOpen}
                     onCreate={({name}) => {
-                        setActiveKey(createChatBox(name))
                         startChat(me, name)
+                        setActiveKey(createChatBox(name))
                         setModalOpen(false)
                     }}
                     onCancel={() => {
