@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import ChatBoxModel from '../models/chatbox'
-=======
-import {v4 as uuidv4} from 'uuid';
->>>>>>> 918571b6dc031f721c84cf67257a094c4a7f7316
 
 const makeName = (name, to) => { return [name, to].sort().join('_') }
 
