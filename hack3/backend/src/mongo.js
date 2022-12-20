@@ -8,7 +8,6 @@ mongoose.set("strictQuery", true);
 async function connect() {
   // TODO 1 Connect to your MongoDB and call dataInit()
 
-  dotenv.config();
   if (!process.env.MONGO_URL) {
       console.error("Missing MONGO_URL!!!");
       process.exit(1);
