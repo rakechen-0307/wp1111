@@ -40,12 +40,11 @@ const Mutation = {
   deleteItem: async (parent, { id }, {itemModel, pubSub}) => {
     const find = await itemModel.findOne({id: id})
     const findID = find.id
-    /*
+
     pubSub.publish("ITEM_DELETED", {
-      itemDeleted: id,
+      itemDeleted: findID,
     });
-    console.log(id)
-    */
+    
     return findID
   }
 
