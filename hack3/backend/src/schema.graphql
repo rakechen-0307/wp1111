@@ -49,6 +49,8 @@ type Mutation {
   updateItem(input: UpdateItemInput!): Item
   # TODO 5.1 Define the schema for the deleteItem Mutation
 
+  deleteItem(id: ID!): ID
+
   # TODO 5.1 End
 }
 
