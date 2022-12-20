@@ -70,7 +70,7 @@ function Home() {
   if (error) {
     // eslint-disable-next-line no-console
     console.error(error);
-    return (<p>Error :(</p>);
+    return (<p>Error :</p>);
   }
 
   const { items } = itemsData;

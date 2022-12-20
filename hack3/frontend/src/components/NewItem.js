@@ -17,6 +17,8 @@ function NewItem() {
 
   // TODO 3.2 Evoke the CreateItem Mutation
 
+  const [createItem] = useMutation(CREATE_ITEM_MUTATION)
+
   // TODO 3.2 End
 
   const handleOpen = () => {
@@ -26,8 +28,9 @@ function NewItem() {
   useHotkeys('ctrl+k, ', handleOpen, []);
 
   const handleSubmit = (formData) => {
+
     // TODO 3.3 Apply the `createItem` callback function
-    /*
+
     createItem({
       variables: {
         input: {
@@ -36,8 +39,9 @@ function NewItem() {
         },
       },
     });
-    */
+    
     // TODO 3.3 End
+
   };
 
   return (
