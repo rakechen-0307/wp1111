@@ -38,7 +38,12 @@ const Mutation = {
   // TODO 6.3 Publish itemDeleted
 
   deleteItem: async (parent, { id }, {itemModel, pubSub}) => {
+    /*
+    pubSub.publish("ITEM_DELETED", {
+      itemDeleted: id,
+    });
     console.log(id)
+    */
     return id
   }
 
