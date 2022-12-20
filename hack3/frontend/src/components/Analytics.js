@@ -8,7 +8,16 @@ import Category from './Category';
 function Analytics() {
   // TODO 2.2 Use the useQuery hook to get items from backend
 
-  const { data: items, error, loading } = useQuery(GET_ITEMS_QUERY)
+  const { data: itemData, error, loading } = useQuery(GET_ITEMS_QUERY)
+
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    return (<p>Error :</p>);
+  }
+
+  const { items } = itemData
 
   // TODO 2.2 End
 
