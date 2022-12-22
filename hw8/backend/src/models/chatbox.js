@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
-const ChatboxSchema = new Schema({
+const ChatBoxSchema = new Schema({
     name: {type: String, required: [true, "Name field is required."]},
-    messages: [{ sender: { type: String }, body: { type: String }}]
-});
-const ChatboxModel = mongoose.model("Chatbox", ChatboxSchema);
+    messages: [{ sender: { type: String }, body: { type: String } }]
+})
 
-export { ChatboxModel };
+const ChatBoxModel = mongoose.model("ChatBox", ChatBoxSchema);
+
+export { ChatBoxModel }
