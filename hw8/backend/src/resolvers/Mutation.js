@@ -1,4 +1,4 @@
-import ChatBoxModel from '../models/chatbox'
+import { ChatBoxModel } from '../models/chatbox'
 
 const makeName = (name, to) => { return [name, to].sort().join('_') }
 
@@ -18,7 +18,7 @@ const Mutation = {
     createMessage: async (parent, { name, to, body }, { pubsub } ) => {
         const chatBox = await checkOutChatBox(name, to);
         console.log(chatBox)
-        const newMsg = { sender: name, body };
+        const newMsg = { sender: name, to, body };
         chatBox.messages.push(newMsg);
         await chatBox.save();
         const chatBoxName = makeName(name, to);

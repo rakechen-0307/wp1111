@@ -1,3 +1,5 @@
+import { ChatBoxModel } from "../models/chatbox"
+
 const makeName = (name, to) => { return [name, to].sort().join('_') }
 
 const Query = {
@@ -11,3 +13,4 @@ const Query = {
 }
 
 export default Query
+ 
