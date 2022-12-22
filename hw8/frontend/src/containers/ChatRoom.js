@@ -28,8 +28,8 @@ const FootRef = styled.div`
 `;
 
 const ChatRoom = () => {
-  const {messages, clearMessages, me, displayStatus, activeKey, packSetActiveKey,
-        startChat,sendMessage,setMessages,data} = useChat();
+  const {messages, clearMessages, me, displayStatus, activeKey, setSub, setActiveKey,
+        startChat, sendMessage, setMessages, data} = useChat();
   const [chatboxes, setChatboxes] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [body, setBody] = useState('');
@@ -50,15 +50,6 @@ const ChatRoom = () => {
             )
         ))
     )
-  }
-
-  const setActiveKey = (newAct)=>{
-    packSetActiveKey(newAct);
-  }
-
-  const crazySetActiveKey = (newAct)=>{
-    packSetActiveKey(newAct);
-    setBool(!bool);
   }
 
   const scrollToBottom = ()=>{

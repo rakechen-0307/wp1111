@@ -3,11 +3,11 @@ import { createServer } from 'node:http';
 import { WebSocketServer } from 'ws';
 import { createPubSub, createSchema,createYoga } from 'graphql-yoga';
 import { useServer } from 'graphql-ws/lib/use/ws';
-import ChatBoxModel from './models/chatbox';
+import ChatboxModel from './models/chatbox';
 import Query from './resolvers/Query';
 import Mutation from './resolvers/Mutation';
 import Subscription from './resolvers/Subscription';
-import ChatBox from './resolvers/ChatBox';
+import Chatbox from './resolvers/Chatbox';
 
 let pubsub = createPubSub();
 
@@ -21,11 +21,11 @@ const yoga = createYoga({
       Query,
       Mutation,
       Subscription,
-      ChatBox,
+      Chatbox,
     },
   }),
   context: {
-    ChatBoxModel,
+    ChatboxModel,
     pubsub,
   },
   graphiql: {
