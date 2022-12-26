@@ -16,8 +16,6 @@ repo 裡的 connection.js 的 code 應該要改成底下這樣(debug 弄超久 Q
 
 import axios from "axios";
 
-console.log(process.env.NODE_ENV)
-
 const API_ROOT =  
  process.env.NODE_ENV === "production"  
  ? "/"  
