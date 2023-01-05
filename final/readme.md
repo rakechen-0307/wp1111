@@ -4,6 +4,8 @@
 
 #### Demo 影片連結:
 
+https://youtu.be/Qyn8kR5L5J8
+
 #### 服務介紹:
 
 由於組員喜歡玩音樂和編曲，但大多的編曲軟體並沒有提供自動打譜的功能，要自己手動製作樂譜相當耗時而麻煩，因此我們才想製作一個能夠在 MIDI 鍵盤輸入音訊或利用電腦鍵盤當作鋼琴輸入音符後，能夠即時將樂譜自動生成出來的網站服務，方便編曲者進行編曲。
@@ -33,7 +35,7 @@ https://wp1111-final-production-2b01.up.railway.app/
 前端：antd, axios, react, react-dom, react-scripts, react-window, tone, uuidv4, vexflow, web-vitals, webmidi
 ![](https://i.imgur.com/vYjhk7L.png)
 
-後端：bcryptjs, cors, dotenv-defaults, express, mongoose, nodemon
+後端：bcryptjs, cors, dotenv-defaults, express, mongoose, nodemon  
 ![](https://i.imgur.com/3ep3NgM.png)
 
 #### 在 localhost 安裝與測試之詳細步驟
