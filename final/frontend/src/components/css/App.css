@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #363638;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#startMenu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: Fuzzy Bubbles;
+  src: url(../font/FuzzyBubbles-Bold.ttf);
+}
+@font-face {
+  font-family: Fuzzy Bubbles2;
+  src: url(../font/FuzzyBubbles-Bold.ttf);
+}
+
+.startBtn{
+  background-color: transparent;
+  font-family: Fuzzy Bubbles,Arial;
+  border-color: transparent;
+  color: #F5F5F5;
+  font-size: 27px;
+  font-weight: 500;
+  padding: 19px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.startBtn:hover{
+  color: #FDB924;
+}
+
+p{
+  font-family: Fuzzy Bubbles2,Arial, Helvetica, sans-serif;
+}
+
+#openPage{
+  width: 300px;
+}
+
+.BtnShift {
+  width: 80%;
+  transform: translateX(-10%);
+}
+
+.save {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+
+#saveOrNot {
+  font-family: Fuzzy Bubbles, Arial;
+  border-color: transparent;
+  color: #F5F5F5;
+  font-size: 27px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.chooseBtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.chooseBtns>button {
+  background-color: transparent;
+  font-family: Fuzzy Bubbles, Arial;
+  border-color: transparent;
+  color: #F5F5F5;
+  font-size: 27px;
+  font-weight: 500;
+  padding: 19px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.none {
+  display: none;
+}
+
+#Yes:hover {
+  color: #FDB924;
+}
+
+#No:hover {
+  color: #FDB924;
+}

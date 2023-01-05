@@ -1,0 +1,237 @@
+#SignUpPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Title {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #FDB924;
+    font-size: 45px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Name {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.name__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.name__field::placeholder {
+    color: transparent;
+}
+
+.name__field:placeholder-shown~.name__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+
+.name__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.name__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+
+.name__field:focus~.name__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+
+/* reset input */
+.name__field:required,
+.name__field:invalid {
+    box-shadow: none;
+}
+
+.Password {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.password__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.password__field::placeholder {
+    color: transparent;
+}
+
+.password__field:placeholder-shown~.password__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+
+.password__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.password__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+
+.password__field:focus~.password__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+
+/* reset input */
+.password__field:required,
+.password__field:invalid {
+    box-shadow: none;
+}
+
+.checkPassword {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.checkpassword__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.checkpassword__field::placeholder {
+    color: transparent;
+}
+
+.checkpassword__field:placeholder-shown~.checkpassword__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+
+.checkpassword__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.checkpassword__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+
+.checkpassword__field:focus~.checkpassword__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+
+/* reset input */
+.checkpassword__field:required,
+.checkpassword__field:invalid {
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #222;
+}
+
+#StartBtn {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 27px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#StartBtn:hover {
+    color: #FDB924;
+}

@@ -1,0 +1,75 @@
+.ul {
+    width: 910px;
+    height: 200px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    padding: 0;
+    margin: 0;
+    bottom: 30%;
+}
+
+.li {
+    float: left;
+    list-style-type: none;
+    position: relative;
+}
+
+.li>h4 {
+    height: 200px;
+    width: 70px;
+    font-size: 25px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 1);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-sizing: border-box;
+    box-shadow:
+        /*inset  3px 0  10px  #c9c6c6,*/
+        inset 5px -8px0#00000023;
+    text-align: center;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.li:not(:last-child)>h4 {
+    border-right: none;
+}
+
+.li>h4:hover {
+    background: rgb(255, 97, 97);
+
+}
+
+/* 當白鍵按下時的樣式 */
+.white_active {
+    box-shadow: inset 3px -2px0#00000036;
+    background: linear-gradient(45deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .5));
+}
+
+.li>h6 {
+    height: 120px;
+    width: 35px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    background-color: #000;
+    border-bottom-left-radius: 5.5px;
+    border-bottom-right-radius: 5.5px;
+    box-shadow: inset 5px -7px0#2c2c2c;
+    position: absolute;
+    top: 0;
+    left: 55px;
+    transform: translateY(-35px);
+    z-index: 999;
+}
+
+.li>h6:hover {
+    background: linear-gradient(45deg, #4c4c4c, #444444);
+}
+
+/* 當黑鍵按下時的樣式 */
+.black_active {
+    box-shadow: inset 3px -5px0#2c2c2c;
+}

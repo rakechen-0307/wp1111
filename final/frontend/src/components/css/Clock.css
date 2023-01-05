@@ -1,0 +1,17 @@
+#clock {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+#countdown {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;
+    color: #FF8040;
+    z-index: 1;
+}

@@ -1,0 +1,25 @@
+#left {
+    position: absolute;
+    top: 65%;
+    left: 8%;
+    background-color: #222222;
+    box-sizing: border-box;
+    height: 30px;
+    border-width: 30px;
+    border-color: transparent white transparent transparent;
+}
+
+#right {
+    position: absolute;
+    top: 65%;
+    right: 8%;
+    background-color: #222222;
+    box-sizing: border-box;
+    height: 30px;
+    border-width: 30px;
+    border-color: transparent transparent transparent white;
+}
+
+#none{
+    display: none;
+}

@@ -1,0 +1,219 @@
+#createPageWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Title {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #FDB924;
+    font-size: 45px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.inputFileName {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 90%;
+}
+.inputFileName__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.inputFileName__field:placeholder-shown~.inputFileName__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+.inputFileName__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+.inputFileName__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+.inputFileName__field:focus~.inputFileName__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+/* reset input */
+.inputFileName__field:required,
+.inputFileName__field:invalid {
+    box-shadow: none;
+}
+
+.inputComposer {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 90%;
+}
+.inputComposer__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.inputComposer__field:placeholder-shown~.inputComposer__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+
+.inputComposer__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.inputComposer__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+
+.inputComposer__field:focus~.inputComposer__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+
+/* reset input */
+.inputComposer__field:required,
+.inputComposer__field:invalid {
+    box-shadow: none;
+}
+
+.inputBPM {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.inputBPM__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.inputBPM__field:placeholder-shown~.inputFileName__label {
+    font-family: Fuzzy Bubbles, Arial;
+    font-size: 0.7rem;
+    cursor: text;
+    top: 20px;
+}
+
+.inputBPM__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.inputBPM__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #FFBF00, #B22222);
+    border-image-slice: 1;
+}
+
+.inputBPM__field:focus~.inputBPM__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #FFBF00;
+    font-weight: 700;
+}
+
+/* reset input */
+.inputBPM__field:required,
+.inputBPM__field:invalid {
+    box-shadow: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #222;
+}
+
+#StartBtn {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 27px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#StartBtn:hover {
+    color: #FDB924;
+}

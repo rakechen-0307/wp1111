@@ -1,0 +1,115 @@
+.up-left_Btns {
+    position: absolute;
+    left: 3%;
+    top: 5%;
+}
+
+.up-right_items {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    display: flex;
+    flex-direction: row;
+    user-select:none;
+}
+
+#LogOutBtn {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#showUserName {
+    font-family: Fuzzy Bubbles, Arial;
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+}
+
+#LogInBtn {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.up-left_button {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#SignUpBtn {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#LogInBtn:hover {
+    color: #FDB924;
+}
+
+#SignUpBtn:hover {
+    color: #FDB924;
+}
+
+.up-left_button:hover {
+    color: #FDB924;
+}
+
+#LogOutBtn:hover{
+    color: #FDB924;
+}
+
+.playingBtn {
+    position: absolute;
+    right: 5%;
+    top: 8%;
+    display: flex;
+    flex-direction: row;
+}
+
+#Record {
+    background-color: transparent;
+    font-family: Fuzzy Bubbles, Arial;
+    border-color: transparent;
+    color: #F5F5F5;
+    font-size: 27px;
+    font-weight: 500;
+    padding: 19px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#Record:hover {
+    color: #FDB924;
+}
