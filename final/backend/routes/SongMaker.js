@@ -9,25 +9,17 @@ var existing;
 // save data
 const SaveSong = async (id, name, composer, data) => {
     existing = await WorkModel.findOne({ id });
-    console.log("savesong existing")
-    console.log(existing)
     if (existing) {
         await WorkModel.deleteOne({ id });
     }
-    try { //ok
-        console.log("create song")
+    try { 
         const newSong = new WorkModel({ id, name, composer, data });
         return newSong.save();
     } catch (e) { throw new Error("Song creation error: " + e); }
 }
 
 const SaveToUser = async (id, name, composer, user, works) => {
-    console.log("savetouser works")
-    console.log(works);
     const existing = await UserModel.findOne({ name:user });
-    console.log("savetouser existing")
-    console.log(existing)
-    // console.log(existing)
     if(existing) {
         await UserModel.deleteOne({ name:user });
     }
@@ -41,8 +33,6 @@ const SaveToUser = async (id, name, composer, user, works) => {
 
 
 router.post("/song", async (req , res) => {
-console.log("req body start")
-    console.log(req.body)
 
     const id = req.body.id
     const name = req.body.name
@@ -65,7 +55,6 @@ router.get("/songs", async (req , res) => {
     const id = req.query.id
 
     const matchData = await WorkModel.find({ id:id })
-    console.log(matchData)
     res.json({message : (matchData.length !== 0) ? 
         {id: matchData[0].id, name: matchData[0].name, composer: matchData[0].composer, data: matchData[0].data} :
         `Not Found Song`

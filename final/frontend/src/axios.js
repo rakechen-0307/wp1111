@@ -20,7 +20,6 @@ const openReq = async () => {
 }
 
 const saveSong = async (id, name, composer, data, user, works) => {
-    console.log('saved');
     let concatedData = [];
     data.map((arr,index)=>{
         arr.map(e=>{concatedData.push({pitch:e.pitch,beat:e.beat,duration:e.duration,section:index})})
@@ -60,7 +59,6 @@ const handleQuery = async (id) => {
         }
     }
     main.push(second);
-    // console.log(main);//start from here
     return {song:main,composer:message.composer,name:message.name};
 }
 

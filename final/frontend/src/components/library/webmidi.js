@@ -41,7 +41,6 @@ const init = (bpm,countdown,setCountdown) => {
     WebMidi.enable().then(() => {
         song = [];
         if (WebMidi.inputs.length!==0) {
-            console.log("midi input existed")
             WebMidi.inputs.forEach((i) => {
                 i.removeListener();
                 i.addListener("noteon", (e) => {
@@ -53,7 +52,6 @@ const init = (bpm,countdown,setCountdown) => {
                             release: e.note.release,
                             start: e.timestamp,
                         });
-                    console.log(bufferForMidi);
                     }
                 });
                 i.addListener("noteoff", (e) => {
@@ -83,7 +81,6 @@ const init = (bpm,countdown,setCountdown) => {
         }
 
         else{
-            console.log("midi not existed")
 
             const playMusic = (e)=>{
                 if(playing[e.keyCode]){return;}

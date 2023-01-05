@@ -32,7 +32,6 @@ const HoverSongSx = {"&:hover":{ color: '#FDB924'},color:"#f5f5f5"}
 const OpenPage = ({works, setWorks, setComposer, setFilename, setEdit, setSong, user}) => {
 
     const open_page = async(id) => {
-        // console.log(id)
         const songFromQuery = await handleQuery(id);
         setSong(songFromQuery.song)
         setEdit(true)

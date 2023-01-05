@@ -26,9 +26,9 @@ function App() {
   const [logIn, setLogIn] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [startPlaying, setStartPlaying] = useState(false);
-  const [user, setUser] = useState('Ric');
+  const [user, setUser] = useState('');
   const [works, setWorks] = useState([]);
-  const [bpm, setBpm] = useState(90);
+  const [bpm, setBpm] = useState(120);
   const [countdown, setCountdown] = useState('');
   const [edit, setEdit] = useState(false);
   const [song, setSong] = useState([]);
@@ -111,7 +111,6 @@ function App() {
   const StopPlaying = async () => {
     let prevSong = stopIt();
     const newPrevSong = modify(prevSong);
-    console.log("song= "+newPrevSong)
     const songSaved = convertNoteToVex(newPrevSong)
     if(songSaved !== "empty message"){
       setSong(songSaved);
@@ -127,7 +126,6 @@ function App() {
 
   const StopEditPlaying = async () => {
     let prevSong = stopIt();
-    // console.log('song = ', prevSong);
     const newPrevSong = modify(prevSong);
     const songSaved = convertNoteToVex(newPrevSong)
     const concattedSong = song.concat(songSaved)

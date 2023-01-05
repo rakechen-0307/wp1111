@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import './css/Staff.css';
 
 const Staff = ( { song, page } ) => {
-    console.log('page = ',page )
     function dotted(staveNote, noteIndex = -1) {
         if (noteIndex < 0) {
             Dot.buildAndAttach([staveNote], {
@@ -48,7 +47,6 @@ const Staff = ( { song, page } ) => {
         let cutOrNot = [];
 
         for(let i = page*10 ; i < (song.length > (page+1)*10 ? (page+1)*10: song.length); i += 1){
-            console.log('i = ',i)
             if(i % 10 === 0){
                 staveMeasure[i%1] = new Stave(10, 20, 480);
                 staveMeasure[i%10].addClef("treble").setContext(context).draw();
@@ -132,7 +130,6 @@ const Staff = ( { song, page } ) => {
                   finalBeam.push(new Beam(beam[k]));
                 }
             }
-            console.log('beam = ',beam);
             var result=[].concat.apply([], beam);
             Formatter.FormatAndDraw(context, staveMeasure[i%10], result);
             for(let l = 0; l < finalBeam.length; l += 1){

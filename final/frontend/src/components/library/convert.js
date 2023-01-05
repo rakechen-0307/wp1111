@@ -252,8 +252,6 @@ const convertNoteToVex = (notes,beat=8,clef= "treble") =>{
         primaryArray.push(secondaryArray);
     }
     secondaryArray = [];
-    console.log("=============result============")
-    console.log(primaryArray)
     return primaryArray.length === 0 ? "empty message":primaryArray;        
 }
 

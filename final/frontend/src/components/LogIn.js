@@ -14,9 +14,9 @@ const theme = createTheme({
     },});
 
 const LogIn = ( { EnterMainPage, setUser, setWorks } ) => {
-    const [user, setLocalUser] = useState("Ric");
-    const [password, setPassword] = useState("testpassword");    
-    const [secretPassword, setSecretPassword] = useState('************');
+    const [user, setLocalUser] = useState("");
+    const [password, setPassword] = useState("");    
+    const [secretPassword, setSecretPassword] = useState('');
 
     const log_in = async () => { //not used
         const Message = await FindUser(user);
@@ -36,7 +36,6 @@ const LogIn = ( { EnterMainPage, setUser, setWorks } ) => {
 
     const loginFunc = async()=>{
         const data = await createLogin(user, password);
-        // console.log(data);
         if (data.message === "login success") {
           message.info(data.message);
           setUser(data.name);

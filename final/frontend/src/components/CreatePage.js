@@ -21,7 +21,7 @@ const CreatePage = ({fileName, composer, setFileName, setComposer,
         else if (composer === '') {
             message.error("Please enter the composer")
         }
-        else if (!Number.isInteger(bpm)||bpm<=0||bpm>=300) {
+        else if (!Number.isInteger(Number(bpm))||bpm<=0||bpm>=300) {
             message.error("bpm setting is invalid")
             setBpm(120);
         }

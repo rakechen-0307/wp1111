@@ -23,15 +23,12 @@ router.post("/register", async (req, res) => {
     newUser.save().then(() => console.log("The user has been added."));
     res.json({message:'not existed'})
   }
-  console.log(existing);
-  // console.log(pass_hashed);
   
 });
 
 router.post("/login", async (req, res) => {
   const { name: name, pass: password } = req.body;
   const existing = await UserModel.findOne({ name:name });
-  // console.log(existing);
   if (!existing)
     res.json({
       message: "User name does not exist or the password is not correct",
@@ -53,10 +50,6 @@ router.post("/login", async (req, res) => {
       res.json(data);
     }
   }
-  //   newUser.save().then(() => console.log("The user has been added."));
-  //   const result = existing.map(user => user.password);
-
-  //   console.log(bcrypt.compareSync(password, result[0]));
 });
 
 export default router;
